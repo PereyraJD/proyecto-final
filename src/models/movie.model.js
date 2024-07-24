@@ -32,7 +32,7 @@ const moviesSchema = new mongoose.Schema({
     required: true,
   },
   elenco: {
-    type: String,
+    type: [String],
     trim: true,
     required: true,
   },
