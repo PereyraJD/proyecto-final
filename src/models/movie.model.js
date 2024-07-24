@@ -58,5 +58,6 @@ const moviesSchema = new mongoose.Schema({
   }
 });
 
-const ModelMovies = mongoose.model("Movies", moviesSchema);
+const ModelMovies = mongoose.model('movies', moviesSchema);
+
 module.exports = ModelMovies;
