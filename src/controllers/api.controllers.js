@@ -37,6 +37,16 @@ controllers.getMoviesById = async (req, res) => {
     }
 }
 
+controllers.getMoviesByCategory = async (req, res) => {
+    const category = req.params.category
+    try {
+        const movies = await ModelMovies.find({ categoria: category })
+        res.status(200).send(movies)
+    } catch (error) {
+        res.status(500).send(error)
+    }
+}
+
 controllers.patchMovies = async (req, res) => {
     const _id = req.params.id
 
@@ -57,6 +67,7 @@ controllers.patchMovies = async (req, res) => {
         keys.forEach((element) => movies[element] = req.body[element])
 
         await movies.save()
+        
         res.send(movies)
     } catch (error) {
         res.status(500).send({ Error: error })

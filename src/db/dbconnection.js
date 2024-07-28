@@ -13,4 +13,4 @@ const dbconnection = async () => {
     }
 }
 dbconnection()
-module.exports 
+module.exports = mongoose
