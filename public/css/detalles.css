@@ -1,0 +1,266 @@
+/* Estilo general del cuerpo */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Estilo del encabezado */
+header {
+    background-color: #000000;
+    color: #fff;
+    padding: 20px;
+    position: relative;
+}
+
+/* Contenedor para el contenido del encabezado */
+.header-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Estilo del logo en el encabezado */
+.logo img {
+    height: 40px;
+}
+
+/* Estilo del menú de navegación */
+.nav-menu {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+/* Lista sin estilo del menú de navegación */
+.nav-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+/* Elementos de la lista en el menú de navegación */
+.nav-menu li {
+    margin: 0 20px;
+}
+
+/* Enlaces del menú de navegación */
+.nav-menu a {
+    font-family: Montserrat, sans-serif;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Estilo de la barra de búsqueda */
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+/* Estilo del campo de entrada en la barra de búsqueda */
+.search-bar input {
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+}
+
+/* Estilo del botón de la barra lateral */
+.sidebar-toggle {
+    display: block;
+}
+
+/* Estilo del botón de la barra lateral */
+.sidebar-toggle button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* Estilo de la barra lateral */
+aside {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: #fff;
+    transition: left 0.3s ease;
+    z-index: 1000;
+}
+
+/* Contenido de la barra lateral */
+.sidebar-content {
+    padding: 20px;
+}
+
+/* Lista sin estilo en la barra lateral */
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Elementos de la lista en la barra lateral */
+.sidebar-nav li {
+    margin-bottom: 10px;
+}
+
+/* Enlaces en la barra lateral */
+.sidebar-nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Efecto de hover en los enlaces de la barra lateral */
+.sidebar-nav a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo del overlay para la barra lateral */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 900;
+}
+
+/* Estilo del área de breadcrumb */
+.breadcrumb-area {
+    font-family: Montserrat, sans-serif;
+    font-size: 16px;
+    position: relative;
+    overflow: hidden;
+    padding: 200px 0;
+    color: #fff;
+    background: url('https://www.itl.cat/pngfile/big/64-640915_image-for-movie-reel-projector-desktop-wallpaper-film.jpg') center/cover no-repeat;
+}
+
+/* Pseudo-elemento para la imagen de fondo difuminada */
+.breadcrumb-area::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    filter: blur(8px);
+    z-index: -1;
+}
+
+/* Contenedor dentro del área de breadcrumb */
+.breadcrumb-area .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilo del título de la página */
+.page-title-wrapper {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.page-title {
+    font-family: Montserrat, sans-serif;
+    font-size: 45px;
+    font-weight: bold;
+    margin: 0;
+    color: #fff;
+}
+
+/* Estilo del menú de breadcrumb */
+.breadcrumb-menu {
+    text-align: center;
+}
+
+.breadcrumb-trail {
+    display: inline-block;
+}
+
+.breadcrumb-trail ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.breadcrumb-trail li {
+    margin: 0 10px;
+}
+
+.breadcrumb-trail a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.breadcrumb-trail a:hover {
+    text-decoration: underline;
+}
+
+/* Contenedor de detalles de película */
+.movie-details-container {
+    display: flex; /* Usa flexbox para alinear los detalles de la película y el tráiler lado a lado */
+    justify-content: space-between; /* Espacio entre los elementos */
+    margin: 20px;
+}
+
+/* Estilo del recuadro de detalles de la película */
+.movie-details {
+    flex: 1;
+    margin-right: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo del recuadro del tráiler */
+.movie-trailer {
+    flex: 1;
+    margin-left: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo del contenedor del tráiler */
+#trailer-container {
+    text-align: center;
+}
+
+/* Estilo del enlace de YouTube */
+#youtube-link {
+    display: block;
+    margin-top: 10px;
+    color: #1e90ff;
+    text-decoration: none;
+}
+
+#youtube-link:hover {
+    text-decoration: underline;
+}
+
+/* Estilo del pie de página */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #000;
+    color: #fff;
+}
