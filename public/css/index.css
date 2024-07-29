@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body{
+  color: #FFF;
+}
+
+.flex-style {
+  display: flex;
+  align-items: center;
+  
+}
+
+header {
+  background-color: rgba(0, 0, 0,0.8);
+  justify-content: space-between;
+  padding: 5px 40px;
+}
+
+/* header .iconoTexto {
+
+}  */
+
+header img {
+  width: 55px;
+}
+
+header .nav-bar {
+  gap: 30px;
+}
+
+header .nav-bar a {
+  text-decoration: none;
+  font-size: 0.8rem;
+  color: #FFF;
+}
+
+header .nav-bar a:hover {
+  opacity: 0.6;
+}
