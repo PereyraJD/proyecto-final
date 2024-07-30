@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/login.css" />
+    <!-- Google font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Login</title>
+  </head>
+  <body>
+    <div class="contenedor">
+      <form>
+        <h3>Login</h3>
+        <label for="">Username</label>
+        <input type="text" id="input-username" />
+
+        <label for="">Password</label>
+        <input type="password" id="input-password" />
+        <p id="forgot-password">Forgot Password?</p>
+
+        <button>Sign in</button>
+
+        <div id="div-social-accounts">
+          <hr />
+          <p id="login-social-accounts">Login with social accounts</p>
+          <hr />
+        </div>
+
+        <section id="section-social-buttons">
+          <img src="../img/login/google.png" alt="Logo de google" /><img
+            src="../img/login/twitter.png"
+            alt="Logo de Twitter"
+          /><img src="../img/login/github.png" alt="Logo de Github" />
+        </section>
+
+        <p id="p-no-account">Don't have an account? <span>Sign Up</span></p>
+      </form>
+
+      <div class="slider">
+        <div class="slider-inner"></div>
+      </div>
+    </div>
+    <script src="../js/login.js"></script>
+  </body>
+</html>
