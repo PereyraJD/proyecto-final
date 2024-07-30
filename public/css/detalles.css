@@ -1,6 +1,6 @@
 /* Estilo general del cuerpo */
 body {
-    font-family: Arial, sans-serif;
+    font-family: Montserrat, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
@@ -26,7 +26,7 @@ header {
 
 /* Estilo del logo en el encabezado */
 .logo img {
-    height: 40px;
+    height: 60px;
 }
 
 /* Estilo del menú de navegación */
@@ -224,10 +224,26 @@ aside {
 .movie-details {
     flex: 1;
     margin-right: 20px;
-    padding: 20px;
+    padding: 30px;
     background-color: #fff;
-    border-radius: 8px;
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.movie-poster img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+    /* Para limitar el tamaño máximo del póster */
+    max-width: 300px;
+}
+
+/* Estilo específico para el texto en synopsis */
+#synopsis {
+    font-size: 18px; /* Tamaño de fuente específico */
+    font-family: 'Montserrat', sans-serif; /* Tipo de fuente específico (opcional, si quieres asegurarte de que sea igual al resto) */
 }
 
 /* Estilo del recuadro del tráiler */
@@ -236,7 +252,7 @@ aside {
     margin-left: 20px;
     padding: 20px;
     background-color: #fff;
-    border-radius: 8px;
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -262,5 +278,110 @@ footer {
     text-align: center;
     padding: 10px;
     background-color: #000;
+    color: #fff;
+}
+
+/* Personaliza la barra de desplazamiento para navegadores basados en WebKit */
+::-webkit-scrollbar {
+    width: 8px; /* Ancho de la barra de desplazamiento vertical */
+    height: 8px; /* Altura de la barra de desplazamiento horizontal */
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color del fondo del track */
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(236, 83, 37); /* Color del pulgar de la barra de desplazamiento */
+    border-radius: 0; /* Bordes rectangulares */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #e45023; /* Color del pulgar cuando está en hover */
+}
+
+/* Estilos para los botones */
+.button-container {
+    margin-top: 20px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-right: 10px;
+    margin-top: 20px;
+    background-color: #f1f1f1;
+    color: #000000;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: Montserrat, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.button:hover {
+    background-color: rgb(236, 83, 37);
+    color: white;
+}
+
+.button i {
+    margin-right: 5px;
+}
+
+/* Estilos para las películas recomendadas */
+.recommended-movies {
+    margin-top: 20px; /* Espacio superior para separar de las secciones anteriores */
+    padding: 20px;
+    border-top: 1px solid #ddd; /* Línea superior para separar visualmente */
+}
+
+.recommended-movies h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.movie-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ajusta el número de columnas automáticamente */
+    gap: 15px; /* Espacio entre elementos */
+    max-width: 1200px; /* Define un ancho máximo para el contenedor */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+}
+
+.movie-item {
+    text-align: center;
+}
+
+.movie-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Esquinas redondeadas para las imágenes */
+}
+
+.movie-item p {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+#footer-logo {
+    height: 100px; /* Ajusta el tamaño del logo */
+}
+
+#footer-text {
+    font-family: Montserrat, sans-serif;
+}
+
+.footer-area {
+    background-color: #000000;
+    padding: 20px; /* Agrega un padding al footer */
+}
+
+.footer-area-about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
     color: #fff;
 }

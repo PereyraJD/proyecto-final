@@ -6,12 +6,13 @@
     <title>Detalles de la Película</title>
     <link rel="stylesheet" href="../css/detalles.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="header-wrapper">
             <div class="logo">
-                <img src="logo.png.jpeg" alt="Logo" id="logo">
+                <img src="../img/jfmIcono.png" alt="Logo" id="logo">
             </div>
             <nav class="nav-menu">
                 <ul>
@@ -65,14 +66,46 @@
                         <p id="cast"></p>
                         <p id="director"></p>
                         <p id="year"></p>
-                        <a id="trailer" href="#" target="_blank">Ver Tráiler</a>
                     </div>
                 </div>
                 <div class="movie-trailer">
                     <h3>Tráiler</h3>
                     <div id="trailer-container">
-                        <iframe id="trailer-video" width="100%" height="315" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <a id="youtube-link" href="#" target="_blank">Ver en YouTube</a>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/hEJnMQG9ev8?si=mKUHHBC-nEDWV7nV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <div class="movie-details-box-content">
+                            <button class="button" id="like-button">
+                                <i class="fas fa-heart"></i> Like
+                            </button>
+                            <button class="button" id="dislike-button">
+                                <i class="fas fa-thumbs-down"></i> Dislike
+                            </button>
+                            <button class="button" id="share-button" data-url="">
+                                <i class="fas fa-share"></i> Share
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recommended-movies">
+                <h3>Películas Recomendadas</h3>
+                <div class="movie-list">
+                    <!-- Aquí puedes agregar las películas recomendadas -->
+                    <div class="movie-item">
+                        <img src="" alt="Portada de la película recomendada">
+                        <p>Nombre de la Película</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac augue purus. Aliquam rutrum nisl risus, in egestas lacus placerat vitae. Vestibulum vehicula vel felis non tristique. Curabitur laoreet orci in nibh varius sodales vel non ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-area">
+                <div class="footer-area-about">
+                    <div class="footer-logo"> 
+                        <img src="../img/jfmIcono.png" alt="Logo" id="footer-logo">
+                    </div>
+                    <div class="footer-text">
+                        <p>La mejor manera de decidir qué película ver. JFM te ofrece toda la información que necesitas.</p>
                     </div>
                 </div>
             </div>
@@ -85,3 +118,4 @@
     <script src="../js/detalles.js"></script>
 </body>
 </html>
+
