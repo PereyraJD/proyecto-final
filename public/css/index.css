@@ -5,9 +5,6 @@
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-body{
-  color: #FFF;
-}
 
 .flex-style {
   display: flex;
@@ -19,14 +16,11 @@ header {
   background-color: rgba(0, 0, 0,0.8);
   justify-content: space-between;
   padding: 5px 40px;
+  color: white;
 }
 
-/* header .iconoTexto {
-
-}  */
-
 header img {
-  width: 55px;
+  width: 100px;
 }
 
 header .nav-bar {
@@ -35,10 +29,115 @@ header .nav-bar {
 
 header .nav-bar a {
   text-decoration: none;
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: #FFF;
 }
 
 header .nav-bar a:hover {
   opacity: 0.6;
+}
+
+#contenedor-principal {
+  padding: 20px;
+}
+
+#contenedor-principal h2 {
+  color: #000;
+}
+
+#recomendaciones-tarjetas {
+  display: flex;
+  gap: 10px;
+
+  margin: 20px 0;
+
+}
+
+.recomendaciones-peliculas img {
+  height: 200px;
+}
+
+#categorias a > div {
+  height: 200px;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+#categorias-titulo {
+  display: inline-block;
+  color: white;
+}
+
+#categorias-tarjetas {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 50px 10px;
+  gap: 15px;
+}
+
+#categorias a {
+  text-decoration: none;
+  color: #FFF;
+  font-weight: bold;
+  font-size: 1.3rem;
+  
+}
+
+#categoria-accion {
+  background: linear-gradient(rgba(0, 0, 0, 0.226), rgba(0, 0, 0, 0.226)), url(../img/categorias/accion.jpeg);
+  background-size: cover;
+  background-position: center;
+  border: solid 1px black;
+}
+
+#categoria-accion:hover {
+  transform: scale(1.1);
+}
+
+#categoria-aventura {
+  background: linear-gradient(rgba(0, 0, 0, 0.226), rgba(0, 0, 0, 0.226)), url(../img/categorias/aventura.jpeg);
+  background-size: cover;
+  background-position: center;
+}
+
+#categoria-aventura:hover {
+  transform: scale(1.1);
+}
+
+#categoria-comedia {
+  background: linear-gradient(rgba(0, 0, 0, 0.226), rgba(0, 0, 0, 0.226)), url(../img/categorias/comedia.jpeg);
+  background-size: cover;
+  background-position: right;
+  background-repeat: no-repeat;
+}
+
+#categoria-comedia:hover {
+  transform: scale(1.1);
+}
+
+#categoria-crimen {
+  background: linear-gradient(rgba(0, 0, 0, 0.226), rgba(0, 0, 0, 0.226)), url(../img/categorias/crimen.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#categoria-crimen:hover {
+  transform: scale(1.1);
+}
+
+#categoria-documental {
+  background: linear-gradient(rgba(0, 0, 0, 0.226), rgba(0, 0, 0, 0.226)), url(../img/categorias/documental.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#categoria-documental:hover {
+  transform: scale(1.1);
 }

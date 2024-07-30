@@ -5,7 +5,33 @@ const obtenerDatos = async () => {
 
   const response = await fetch(url)
   const data = await response.json()
-  
+
+  data.forEach((elemento) => {
+    generarRecomendaciones(elemento)
+    console.log(elemento.titulo)
+  })
+  // const portada = data[10].portada
+  // const titulo = data[10].titulo
+  // mostrarElementos(portada, titulo)
+
+  return data
+}
+obtenerDatos()
+
+const recomendacionesTarjetas = document.getElementById('recomendaciones-tarjetas')
+const generarRecomendaciones = (pelicula) => {
+  recomendacionesTarjetas.innerHTML += `
+    <div class="recomendaciones-peliculas">
+      <img src="${pelicula.portada}" alt="">
+      <div class="recomendaciones-detalles">
+        <p class="pelicula-titulo">${pelicula.titulo}</p>
+        <p>${pelicula.duracion}</p>
+      </div>
+    </div>
+  `
+}
+
+const capturarCategorias = (data) => {
   let categorias = []
   data.forEach((element, index) => {
     categorias.push(element.categoria)
@@ -17,20 +43,14 @@ const obtenerDatos = async () => {
     }
     return accumulator
   }, [])
-
-  console.log(uniqueCategories)
-
-  const portada = data[4].portada
-  const trailer = 
-  mostrarElementos(portada, trailer)
-  return data
+  return uniqueCategories
 }
-
-obtenerDatos()
 
 const mostrarElementos = (portada, trailer) => {
   contenedorPrincipal.innerHTML = `
     <img src="${portada}" alt="" style="width: 300px;">
-    <iframe width="560" height="315" src="${trailer}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <div id="player">
+      <iframe width="560" height="315" src="${trailer}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
   `
 }
