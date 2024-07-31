@@ -214,6 +214,9 @@ aside {
 .breadcrumb-trail a:hover {
     text-decoration: underline;
 }
+span {
+    text-transform: capitalize;
+}
 
 /* Contenedor de detalles de película */
 .movie-details-container {
@@ -276,6 +279,15 @@ aside {
 
 #youtube-link:hover {
     text-decoration: underline;
+}
+
+
+/* Estilo del pie de página */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #000;
+    color: #fff;
 }
 
 /* Personaliza la barra de desplazamiento para navegadores basados en WebKit */
