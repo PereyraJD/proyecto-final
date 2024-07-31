@@ -1,39 +1,132 @@
+document.addEventListener('DOMContentLoaded', () => {
+  obtenerPortadas();  // Corrección: Mover las llamadas de función a 'DOMContentLoaded'
+  obtenerDatos();     // Corrección: Mover las llamadas de función a 'DOMContentLoaded'
+  // obtenerPortadas2()
+});
+
 const contenedorPrincipal = document.getElementById('contenedor-principal')
 
-const obtenerDatos = async () => {
-  const url = 'http://localhost:3000/movies/'
 
-  const response = await fetch(url)
+// const mostrarElementos = (portada, trailer) => {
+//   contenedorPrincipal.innerHTML = `
+//     <img src="${portada}" alt="" style="width: 300px;">
+//     <div id="player">
+//       <iframe width="560" height="315" src="${trailer}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+//     </div>
+//   `
+// }
+
+const obtenerPortadas = async () => {
+  const response = await fetch('http://localhost:3000/movies')
   const data = await response.json()
+  let detallesPelicula = document.querySelector('.datos-peliculas')
 
+  let sliderInner = document.querySelector('.slider-inner')
+
+  // sliderInner.innerHTML = ''
   data.forEach((elemento) => {
-    generarRecomendaciones(elemento)
-    console.log(elemento.titulo)
+    sliderInner.innerHTML += `
+      <img src="${elemento.portada}" alt="Portada de ${elemento.titulo}" data-detalles="${JSON.stringify(elemento)}">
+    `
   })
-  // const portada = data[10].portada
-  // const titulo = data[10].titulo
-  // mostrarElementos(portada, titulo)
 
-  return data
+  generarSlider(sliderInner, detallesPelicula, data)
 }
-obtenerDatos()
 
-const recomendacionesTarjetas = document.getElementById('recomendaciones-tarjetas')
-const generarRecomendaciones = (pelicula) => {
-  recomendacionesTarjetas.innerHTML += `
-    <div class="recomendaciones-peliculas">
-      <img src="${pelicula.portada}" alt="">
-      <div class="recomendaciones-detalles">
-        <p class="pelicula-titulo">${pelicula.titulo}</p>
-        <p>${pelicula.duracion}</p>
-      </div>
-    </div>
+const generarDetalles = (contenedor, pelicula) => {
+  if (!pelicula) {
+    contenedor.innerHTML = '<p>Detalles no disponibles</p>'
+    return
+  }
+  contenedor.innerHTML = `
+    <p>Titulo:</strong> ${pelicula.titulo}</p>
+    <p>Sinopsis:</strong> ${pelicula.sinopsis}</p>
+    <p>Categoría:</strong> ${pelicula.categoria}</p>
+    <p>Elenco:</strong> ${pelicula.elenco}</p>
   `
 }
 
+//Con esto buscamos todas las imagenes dentro de sliderInner
+const generarSlider = (sliderInner, detallesPelicula, data) => {
+  let images = sliderInner.querySelectorAll('img')
+  let index = 0
+
+  const updateDetails = (index => {
+    generarDetalles(detallesPelicula, data[index]);
+  })
+
+  setInterval(function () {
+
+    let percentage = index * -100
+    sliderInner.style.transform = 'translateX(' + percentage + '%)'
+    updateDetails(index)
+    index++
+    if (index == images.length) {
+      index = 0
+      return
+    }
+  }, 5000)
+}
+
+// obtenerPortadas()
+
+//*-------------- Sección categorias --------------
+const obtenerDatos = async () => {
+  let categorias = ['crimen', 'comedia', 'accion', 'documentales', 'aventura']
+  let categoriasSecciones = document.querySelector('.categorias-secciones')
+
+  categoriasSecciones.innerHTML = ''
+
+  for (const elemento of categorias) {
+    const url = `http://localhost:3000/movies/category/${elemento}`
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      generarCategorias(categoriasSecciones, elemento, data);
+    } catch (error) {
+      console.error('Hubo un problema con la solicitud Fetch:', error);
+    }
+  }
+}
+
+const generarCategorias = (contenedor, categoria, peliculas) => {
+  // Construye el HTML para la categoría
+  let contenido = `
+    <div id="${categoria}-peliculas" class="div-categorias">
+      <h2>${categoria}</h2>
+      <div class="categoria-imagenes">`;
+
+  // Agrega las imágenes al contenido HTML
+  peliculas.forEach(pelicula => {
+    contenido += `<a href="detalles.html?id=${pelicula._id}">
+      <img src="${pelicula.portada}" alt="Portada de ${pelicula.titulo}">
+      </a>`;
+  });
+
+  contenido += `
+      </div>
+    </div>`;
+
+  // Asigna el HTML al contenedor
+  contenedor.innerHTML += contenido;
+};
+
+
+
+
+
+
+
+
+
+
+
 const capturarCategorias = (data) => {
   let categorias = []
-  data.forEach((element, index) => {
+  data.forEach((element) => {
     categorias.push(element.categoria)
   })
 
@@ -46,11 +139,3 @@ const capturarCategorias = (data) => {
   return uniqueCategories
 }
 
-const mostrarElementos = (portada, trailer) => {
-  contenedorPrincipal.innerHTML = `
-    <img src="${portada}" alt="" style="width: 300px;">
-    <div id="player">
-      <iframe width="560" height="315" src="${trailer}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
-  `
-}

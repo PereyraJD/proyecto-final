@@ -1,29 +1,32 @@
 const obtenerPortadas = async () => {
   const response = await fetch('http://localhost:3000/movies')
   const data = await response.json()
+
   let sliderInner = document.querySelector('.slider-inner')
 
-  // sliderInner.innerHTML = ''
+  sliderInner.innerHTML = ''
   data.forEach((elemento) => {
     sliderInner.innerHTML += `
       <img src="${elemento.portada}" alt="Portada de ${elemento.titulo}">
     `
-    console.log(elemento.titulo)
   })
 
-  generarSlider(sliderInner)
+  sliderInner.style.width = `${data.length * 100}%`
+
+  generarSlider(sliderInner, data.length)
 }
 
 //Con esto buscamos todas las imagenes dentro de sliderInner
-const generarSlider = (sliderInner) => {
-  let images = sliderInner.querySelectorAll('img')
+const generarSlider = (sliderInner, numImages) => {
+  // let images = sliderInner.querySelectorAll('img')
   let index = 0
   
   setInterval(function () {
-    let percentage = index * -56
+    let percentage = (index * -100) / numImages
     sliderInner.style.transform = 'translateX(' + percentage + '%)'
+    console.log(index)
     index++
-    if (index >= images.length) {
+    if (index >= numImages) {
       index = 0
     }
   }, 2000)
