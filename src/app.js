@@ -1,7 +1,6 @@
 const express = require('express')
 const cors = require('cors')
 const path = require('path')
-const hbs = require('hbs')
 
 const routerMovies = require('./routes/movie.routes')
 const userRouter = require('./routes/user.routes') 
@@ -15,13 +14,6 @@ app.use(cors())
 
 const publicDirectoryPath = path.join(__dirname, '../public')
 app.use(express.static(publicDirectoryPath))
-
-//HBS config
-app.set('view engine', 'hbs')
-app.set('views', path.join(__dirname, '../views'))
-
-const partialsPath = path.join(__dirname, './views/partials')
-hbs.registerPartials(partialsPath)
 
 app.use('/movies',routerMovies)
 app.use('/users', userRouter)
