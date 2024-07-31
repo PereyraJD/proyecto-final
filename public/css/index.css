@@ -53,6 +53,8 @@ body {
   );
   height: 100%;
   width: 100%;
+  min-width: 375px;
+  max-width: 1024;
 }
 
 #contenedor-principal {
@@ -130,66 +132,49 @@ body {
 }
 
 #categoria-accion {
-  background: linear-gradient(rgba(0, 0, 0, 0.226), rgba(0, 0, 0, 0.226)),
-    url(../img/categorias/accion.jpeg);
+  background: url(../img/categorias/accion.jpeg);
   background-size: cover;
   background-position: center;
-  border: solid 1px black;
-}
-
-#categoria-accion:hover {
-  transform: scale(1.1);
 }
 
 #categoria-aventura {
-  background: linear-gradient(rgba(0, 0, 0, 0.226), rgba(0, 0, 0, 0.226)),
-    url(../img/categorias/aventura.jpeg);
+  background: url(../img/categorias/aventura.jpeg);
   background-size: cover;
   background-position: center;
 }
 
-#categoria-aventura:hover {
-  transform: scale(1.1);
-}
-
 #categoria-comedia {
-  background: linear-gradient(rgba(0, 0, 0, 0.226), rgba(0, 0, 0, 0.226)),
-    url(../img/categorias/comedia.jpeg);
+  background: url(../img/categorias/comedia.jpeg);
   background-size: cover;
   background-position: right;
   background-repeat: no-repeat;
 }
 
-#categoria-comedia:hover {
-  transform: scale(1.1);
-}
-
 #categoria-crimen {
-  background: linear-gradient(rgba(0, 0, 0, 0.226), rgba(0, 0, 0, 0.226)),
-    url(../img/categorias/crimen.jpeg);
+  background: url(../img/categorias/crimen.jpeg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-}
-
-#categoria-crimen:hover {
-  transform: scale(1.1);
 }
 
 #categoria-documental {
-  background: linear-gradient(rgba(0, 0, 0, 0.226), rgba(0, 0, 0, 0.226)),
-    url(../img/categorias/documental.jpeg);
+  background: url(../img/categorias/documental.jpeg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
-
-#categoria-documental:hover {
-  transform: scale(1.1);
+.categorias-hover{
+  border-radius: 5px;
 }
+
+.categorias-hover:hover {
+  /* transform: scale(1.1); */
+  border: 3px solid #ffffff;
+}
+
 h2 {
   font-size: 2rem;
-  margin-left: 40px;
+  margin: 0 40px;
 }
 
 .div-categorias h2::first-letter {
@@ -208,4 +193,9 @@ h2 {
   height: 350px;
   aspect-ratio: 2/3;
   object-fit: cover;
+  border-radius: 5px;
+}
+
+.categoria-imagenes img:hover{
+  border: 3px solid #ffffff;
 }
