@@ -32,6 +32,7 @@ form {
   padding: 40px;
   background-color: #18233b;
   width: 380px;
+  height: 499px;
   border-radius: 15px;
   background: linear-gradient(
     90deg,
@@ -40,6 +41,12 @@ form {
   );
   position: absolute;
   z-index: 2;
+}
+
+#login {
+  top: 20px;
+  left: 20px;
+  position: absolute;
 }
 
 form h3 {
@@ -82,14 +89,22 @@ form button {
   cursor: pointer;
 }
 
+#btn-signup {
+  margin-top: 15px;
+}
+
+#login:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
 form button:hover {
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 #login-social-accounts {
   margin: 15px 0;
   text-align: center;
-  /* color: #97a1ad; */
   color: white;
 }
 
