@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JFM Movies</title>
+    <title></title>
     <link rel="shortcut icon" href="../img/jfmIcono.png" type="image/x-icon" />
     <!-- CSS -->
     <link rel="stylesheet" href="../css/index.css" />
@@ -12,10 +12,10 @@
     <header class="flex-style">
       <section class="flex-style iconoTexto">
         <img src="../img/jfmIcono.png" alt="" />
-        <h1>Movies</h1>
+        <h1>{{ titulo }}</h1>
       </section>
       <nav class="flex-style nav-bar">
-        <a href="">Inicio</a>
+        <a href="./index.html">Inicio</a>
         <a href="">Series</a>
         <a href="">Peliculas</a>
       </nav>
@@ -24,39 +24,50 @@
     <main id="contenedor-principal">
       <div id="recomendaciones">
         <h2>Recomendaciones</h2>
-        <div id="recomendaciones-tarjetas"></div>
+        <div class="recomendaciones-contenido">
+          <div class="slider">
+            <div class="slider-inner"></div>
+          </div>
+          <div class="datos-peliculas"></div>
+        </div>
       </div>
 
       <div id="categorias">
         <h2 id="categorias-titulo">Buscar por Categorias</h2>
         <div id="categorias-tarjetas">
-          <a href="">
-            <div id="categoria-accion">
-              <p>Acción</p>
-            </div>
-          </a>
-          <a href="">
-            <div id="categoria-aventura">
-              <p>Aventura</p>
-            </div>
-          </a>
-          <a href="">
-            <div id="categoria-comedia">
-              <p>Comedia</p>
-            </div>
-          </a>
-          <a href="">
+          <a href="#crimen-peliculas">
             <div id="categoria-crimen">
               <p>Crimen</p>
             </div>
           </a>
-          <a href="">
+
+          <a href="#comedia-peliculas">
+            <div id="categoria-comedia">
+              <p>Comedia</p>
+            </div>
+          </a>
+
+          <a href="#accion-peliculas">
+            <div id="categoria-accion">
+              <p>Acción</p>
+            </div>
+          </a>
+
+          <a href="#documental-peliculas">
             <div id="categoria-documental">
               <p>Documental</p>
             </div>
           </a>
+
+          <a href="#aventura-peliculas">
+            <div id="categoria-aventura">
+              <p>Aventura</p>
+            </div>
+          </a>
         </div>
       </div>
+
+      <div class="categorias-secciones"></div>
     </main>
 
     <script src="../js/index.js"></script>

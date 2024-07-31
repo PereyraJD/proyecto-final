@@ -50,7 +50,8 @@ form h3 {
 
 form label {
   margin: 5px 0;
-  color: #97a1ad;
+  /* color: #97a1ad; */
+  color: white
 }
 
 form input {
@@ -66,6 +67,7 @@ form input {
   text-align: right;
   margin: 10px 0;
   cursor: pointer;
+  font-weight: bold;
 }
 
 form button {
@@ -87,7 +89,8 @@ form button:hover {
 #login-social-accounts {
   margin: 15px 0;
   text-align: center;
-  color: #97a1ad;
+  /* color: #97a1ad; */
+  color: white;
 }
 
 #div-social-accounts {
@@ -120,21 +123,24 @@ form button:hover {
   justify-content: center;
   align-items: center;
   margin-top: 20px;
-  color: #97a1ad;
+  /* color: #97a1ad; */
+  color: white;
+
 }
 
 #p-no-account span {
   color: #fff;
   margin-left: 5px;
   cursor: pointer;
+  font-weight: bold;
 }
 
 /**------- Slider -----------*/
 
 .slider {
   overflow: hidden;
-  width: 100%;
-  height: auto;
+  width: 100vw;
+  height: 100vh;
   filter: blur(3px);
   opacity: 0.5;
   position: absolute;
@@ -146,12 +152,12 @@ form button:hover {
   flex-wrap: nowrap;
   transition: transform 1s ease-in-out;
   width: 100%;
+  height: 100%;
 }
 
 .slider-inner img {
-  height: 100%;
-  width: 100%;
-  min-width: 629px;
-  aspect-ratio: 2/3;
+  height: 100vh;
+  width: 100vw;
+  /* aspect-ratio: 2/3; */
   object-fit: cover;
 }
