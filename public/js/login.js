@@ -1,3 +1,7 @@
+document.addEventListener('DOMContentLoaded', () => {
+  obtenerPortadas()
+});
+
 const obtenerPortadas = async () => {
   const response = await fetch('http://localhost:3000/movies')
   const data = await response.json()
@@ -32,4 +36,80 @@ const generarSlider = (sliderInner, numImages) => {
   }, 2000)
 }
 
-obtenerPortadas()
+// Listen for click on Sign Up link
+document.getElementById('sign-up').addEventListener('click', function () {
+  document.getElementById('login-form').style.display = 'none';
+  document.getElementById('register-form').style.display = 'flex';
+  document.getElementById('register-form button').classList.add('btn-register');
+
+});
+
+// Listen for click on Login link in the registration form
+document.getElementById('login').addEventListener('click', function () {
+  document.getElementById('login-form').style.display = 'flex';
+  document.getElementById('register-form').style.display = 'none';
+
+});
+
+async function submitForm(event) {
+  event.preventDefault(); // Evita el comportamiento por defecto del formulario
+
+  const form = event.target;
+  const action = form.getAttribute('action'); // Obtiene la URL del atributo 'action'
+  const method = form.getAttribute('method'); // Obtiene el método HTTP del atributo 'method'
+
+  // Recoge los datos del formulario
+  const data = new FormData(form);
+  const requestData = Object.fromEntries(data);
+  
+  // Lee el token del localStorage o sessionStorage
+  const token = localStorage.getItem('authToken') || sessionStorage.getItem('authToken');
+
+  try {
+      // Realiza la solicitud HTTP
+      const response = await fetch(action.replace(':id', requestData.id || ''), {
+          method: method,
+          body: JSON.stringify(requestData),
+          headers: {
+              'Content-Type': 'application/json',
+              'Authorization': token ? 'Bearer ' + token : '' // Incluye el token si está presente
+          }
+      });
+
+      const result = await response.json();
+      document.getElementById('result').innerText = JSON.stringify(result, null, 2); // Muestra el resultado
+  } catch (error) {
+      document.getElementById('result').innerText = 'Error: ' + error.message; // Muestra el error
+  }
+}
+
+// Añade eventos de envío a los formularios
+document.getElementById('register-form').addEventListener('submit', submitForm);
+document.getElementById('login-form').addEventListener('submit', async function(event) {
+  event.preventDefault();
+  const form = event.target;
+  const data = new FormData(form);
+  const requestData = Object.fromEntries(data);
+
+  try {
+      const response = await fetch(form.getAttribute('action'), {
+          method: form.getAttribute('method'),
+          body: JSON.stringify(requestData),
+          headers: {
+              'Content-Type': 'application/json'
+          }
+      });
+
+      const result = await response.json();
+      if (result.token) {
+          // Almacena el token en localStorage o sessionStorage
+          localStorage.setItem('authToken', result.token);
+          // sessionStorage.setItem('authToken', result.token);
+      }
+      document.getElementById('result').innerText = JSON.stringify(result, null, 2); // Muestra el resultado
+  } catch (error) {
+      document.getElementById('result').innerText = 'Error: ' + error.message; // Muestra el error
+  }
+});
+document.getElementById('updateForm').addEventListener('submit', submitForm);
+// document.getElementById('deleteForm').addEventListener('submit', submitForm);

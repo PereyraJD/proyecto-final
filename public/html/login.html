@@ -13,7 +13,8 @@
   </head>
   <body>
     <div class="contenedor">
-      <form>
+      <form id="login-form">
+         <!-- Login Form -->
         <h3>Login</h3>
         <label for="input-username">Username</label>
         <input type="text" id="input-username" />
@@ -37,7 +38,27 @@
           /><img src="../img/login/github.png" alt="Logo de Github" />
         </section>
 
-        <p id="p-no-account">Don't have an account? <span>Sign Up</span></p>
+        <p id="p-no-account">Don't have an account? <span id="sign-up">Sign Up</span></p>
+      </form>
+
+      <!-- Registration Form -->
+      <form id="register-form" style="display: none">
+        <!-- Back to login -->
+        <span id="login"><- Login</span>
+        <h3>Register</h3>
+        <label for="register-username">Username</label>
+        <input type="text" id="register-username" />
+
+        <label for="register-email">Email</label>
+        <input type="email" id="register-email" />
+
+        <label for="register-password">Password</label>
+        <input type="password" id="register-password" />
+
+        <label for="register-confirm-password">Confirm Password</label>
+        <input type="password" id="register-confirm-password" />
+
+        <button type="button" id="btn-signup">Sign Up</button>
       </form>
 
       <div class="slider">
