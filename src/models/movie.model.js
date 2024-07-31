@@ -56,6 +56,11 @@ const moviesSchema = new mongoose.Schema({
     trim: true,
     required: true,
   },
+  banner: {
+    type: String,
+    trim: true,
+    required: true,  
+  },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
