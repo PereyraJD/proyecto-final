@@ -161,7 +161,7 @@ aside {
     width: 100%;
     height: 100%;
     background: inherit;
-    background: rgba(0, 0, 139, 0.5);
+    background: rgba(0, 0, 139, 0.7);
     z-index: 1;
     pointer-events: none;
 }
@@ -310,16 +310,16 @@ footer {
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Color del fondo del track */
+    background: #f9f8ff; /* Color del fondo del track */
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgb(236, 83, 37); /* Color del pulgar de la barra de desplazamiento */
+    background: rgb(19, 0, 105); /* Color del pulgar de la barra de desplazamiento */
     border-radius: 0; /* Bordes rectangulares */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #e45023; /* Color del pulgar cuando está en hover */
+    background: #3b19ff; /* Color del pulgar cuando está en hover */
 }
 
 /* Estilos para los botones */
@@ -343,7 +343,7 @@ footer {
 }
 
 .button:hover {
-    background-color: rgb(236, 83, 37);
+    background-color: rgb(64, 0, 214);
     color: white;
 }
 
@@ -389,6 +389,7 @@ footer {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para profundidad */
     text-align: center; /* Centra el texto dentro de cada película */
     padding: 5px;
+    margin: 30px;
 }
 
 /* Estilo de la imagen dentro del contenedor de película */
