@@ -50,8 +50,8 @@ const mostrarPeliculasRecomendadas = (movies) => {
 };
 
 const obtenerDatos = async () => { 
-  // const url = "http://localhost:3000/movies/66a16a66f8d3ab06537c865d"
-  const url = `http://localhost:3000/movies/${idPelicula}`
+  const url = "http://localhost:3000/movies/66a16a66f8d3ab06537c865d"
+  // const url = `http://localhost:3000/movies/${idPelicula}`
   const response = await fetch(url)
   const movie = await response.json()
   console.log(movie)
