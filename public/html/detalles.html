@@ -60,7 +60,7 @@
                     <div class="movie-info">
                         <h2 id="title"></h2>
                         <p id="synopsis"></p>
-                        <p id="genre"></p>
+                        <p id="category"></p>
                         <p id="duration"></p>
                         <p id="rating"></p>
                         <p id="cast"></p>
@@ -71,7 +71,7 @@
                 <div class="movie-trailer">
                     <h3>Tráiler</h3>
                     <div id="trailer-container">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/hEJnMQG9ev8?si=mKUHHBC-nEDWV7nV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <iframe id="trailer" width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         <div class="movie-details-box-content">
                             <button class="button" id="like-button">
                                 <i class="fas fa-heart"></i> Like
@@ -91,31 +91,62 @@
                 <h3>Películas Recomendadas</h3>
                 <div class="movie-list">
                     <!-- Aquí puedes agregar las películas recomendadas -->
-                    <div class="movie-item">
-                        <img src="" alt="Portada de la película recomendada">
-                        <p>Nombre de la Película</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac augue purus. Aliquam rutrum nisl risus, in egestas lacus placerat vitae. Vestibulum vehicula vel felis non tristique. Curabitur laoreet orci in nibh varius sodales vel non ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;.</p>
-                    </div>
+                
                 </div>
             </div>
-
-            <div class="footer-area">
-                <div class="footer-area-about">
-                    <div class="footer-logo"> 
-                        <img src="../img/jfmIcono.png" alt="Logo" id="footer-logo">
-                    </div>
-                    <div class="footer-text">
-                        <p>La mejor manera de decidir qué película ver. JFM te ofrece toda la información que necesitas.</p>
-                    </div>
-                </div>
+            <p>Nombre de la Película</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac augue purus. Aliquam rutrum nisl risus, in egestas lacus placerat vitae. Vestibulum vehicula vel felis non tristique. Curabitur laoreet orci in nibh varius sodales vel non ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;.</p>
+        </div>
+        <!-- Película 2 -->
+        <div class="movie-item">
+            <div class="movie-img-container">
+                <img src="https://lumiere-a.akamaihd.net/v1/images/image_26964b90.jpeg" alt="Portada de la película recomendada">
             </div>
-        </main>
-
-        <footer>
-            <p>&copy; 2024 Movie Details. Todos los derechos reservados.</p>
-        </footer>
+            <p>Nombre de la Película</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac augue purus. Aliquam rutrum nisl risus, in egestas lacus placerat vitae. Vestibulum vehicula vel felis non tristique. Curabitur laoreet orci in nibh varius sodales vel non ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;.</p>
+        </div>
+        <!-- Película 3 -->
+        <div class="movie-item">
+            <div class="movie-img-container">
+                <img src="https://lumiere-a.akamaihd.net/v1/images/image_26964b90.jpeg" alt="Portada de la película recomendada">
+            </div>
+            <p>Nombre de la Película</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac augue purus. Aliquam rutrum nisl risus, in egestas lacus placerat vitae. Vestibulum vehicula vel felis non tristique. Curabitur laoreet orci in nibh varius sodales vel non ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;.</p>
+        </div>
     </div>
-    <script src="../js/detalles.js"></script>
-</body>
-</html>
+</div>
 
+<footer>
+    <div class="footer-container">
+        <div class="footer-area-about">
+            <div class="footer-logo"> 
+                <img src="../img/jfmIcono.png" alt="Logo" id="footer-logo">
+                <p id="footer-text">La mejor manera de decidir qué película ver. JFM te ofrece toda la información que necesitas.</p>
+            </div>
+        </div>
+  
+        <div class="footer-follow">
+            <h3>Síguenos</h3>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/" target="_blank"><img src="fotico" alt="Instagram"></a>
+                <a href="https://www.facebook.com/" target="_blank"><img src="fotico" alt="Facebook"></a>
+                <a href="https://x.com/" target="_blank"><img src="fotico" alt="Twitter"></a>
+                <a href="https://www.pinterest.com/" target="_blank"><img src="fotico" alt="Pinterest"></a>
+            </div>
+        </div>
+        <div class="footer-contact">
+            <h3>Contáctanos</h3>
+            <p>Dirección: casa de Jose David</p>
+            <p>Teléfono: número de Francis</p>
+            <p>Email: juancarlos@gmail.com</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2024 JFM. Todos los derechos reservados.</p>
+        <div class="footer-legal">
+            <a href="#">Política de privacidad</a>
+            <a href="#">Términos y Condiciones</a>
+        </div>
+    </div>
+</footer>
