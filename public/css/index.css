@@ -41,23 +41,6 @@ body {
 
 
 
-.recomendaciones-contenido {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-/* .datos-peliculas {
-  width: 300px;
-  padding: 10px;
-  margin: auto 0;
-  margin-left: 40px;
-}
-.datos-peliculas p {
-  margin-bottom: 10px; 
-  line-height: 1.3; 
-} */
-
 
 /**------- Slider -----------*/
 
