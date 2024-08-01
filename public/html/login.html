@@ -13,17 +13,17 @@
   </head>
   <body>
     <div class="contenedor">
-      <form id="login-form">
+      <form id="login-form" action="/users/login" method="post">
          <!-- Login Form -->
         <h3>Login</h3>
-        <label for="input-username">Username</label>
-        <input type="text" id="input-username" />
+        <label for="input-email">Email</label>
+        <input type="text" id="input-email" name="email" required/>
 
         <label for="input-password">Password</label>
-        <input type="password" id="input-password" />
+        <input type="password" id="input-password" name="password" required/>
         <p id="forgot-password">Forgot Password?</p>
 
-        <button>Sign in</button>
+        <button type="submit">Sign in</button>
 
         <div id="div-social-accounts">
           <hr />
@@ -42,29 +42,32 @@
       </form>
 
       <!-- Registration Form -->
-      <form id="register-form" style="display: none">
+      <form id="register-form" action="/users/register" method="post" style="display: none">
         <!-- Back to login -->
         <span id="login"><- Login</span>
         <h3>Register</h3>
-        <label for="register-username">Username</label>
-        <input type="text" id="register-username" />
+        <label for="register-name">Name</label>
+        <input type="text" id="register-name" name="name" required/>
 
-        <label for="register-email">Email</label>
-        <input type="email" id="register-email" />
+        <label for="register-lastName">Last Name</label>
+        <input type="text" id="register-lastName" name="last_name" required/>
 
-        <label for="register-password">Password</label>
-        <input type="password" id="register-password" />
+        <label for="register-email">email</label>
+        <input type="email" id="register-email" name="email" required/>
 
-        <label for="register-confirm-password">Confirm Password</label>
-        <input type="password" id="register-confirm-password" />
+        <label for="registerpassword">Password</label>
+        <input type="password" id="register-password" name="password" required/>
 
-        <button type="button" id="btn-signup">Sign Up</button>
+        <button type="submit" id="btn-signup">Sign Up</button>
       </form>
 
       <div class="slider">
         <div class="slider-inner"></div>
       </div>
     </div>
+
+    <pre id="result"></pre>
+
     <script src="../js/login.js"></script>
   </body>
 </html>

@@ -28,20 +28,18 @@ const generarSlider = (sliderInner, numImages) => {
   setInterval(function () {
     let percentage = (index * -100) / numImages
     sliderInner.style.transform = 'translateX(' + percentage + '%)'
-    console.log(index)
     index++
     if (index >= numImages) {
       index = 0
     }
-  }, 2000)
+  }, 3000)
 }
 
 // Listen for click on Sign Up link
 document.getElementById('sign-up').addEventListener('click', function () {
   document.getElementById('login-form').style.display = 'none';
   document.getElementById('register-form').style.display = 'flex';
-  document.getElementById('register-form button').classList.add('btn-register');
-
+  // document.getElementById('register-form button').classList.add('btn-register');
 });
 
 // Listen for click on Login link in the registration form
@@ -51,6 +49,7 @@ document.getElementById('login').addEventListener('click', function () {
 
 });
 
+//Captura de datos
 async function submitForm(event) {
   event.preventDefault(); // Evita el comportamiento por defecto del formulario
 
@@ -62,17 +61,17 @@ async function submitForm(event) {
   const data = new FormData(form);
   const requestData = Object.fromEntries(data);
   
-  // Lee el token del localStorage o sessionStorage
-  const token = localStorage.getItem('authToken') || sessionStorage.getItem('authToken');
-
+  if(Object.keys(requestData).length > 2) {
+    alert('Registro exitoso')
+  }
+  
   try {
       // Realiza la solicitud HTTP
-      const response = await fetch(action.replace(':id', requestData.id || ''), {
+      const response = await fetch(action, {
           method: method,
           body: JSON.stringify(requestData),
           headers: {
-              'Content-Type': 'application/json',
-              'Authorization': token ? 'Bearer ' + token : '' // Incluye el token si está presente
+              'Content-Type': 'application/json'
           }
       });
 
@@ -84,32 +83,5 @@ async function submitForm(event) {
 }
 
 // Añade eventos de envío a los formularios
+document.getElementById('login-form').addEventListener('submit', submitForm);
 document.getElementById('register-form').addEventListener('submit', submitForm);
-document.getElementById('login-form').addEventListener('submit', async function(event) {
-  event.preventDefault();
-  const form = event.target;
-  const data = new FormData(form);
-  const requestData = Object.fromEntries(data);
-
-  try {
-      const response = await fetch(form.getAttribute('action'), {
-          method: form.getAttribute('method'),
-          body: JSON.stringify(requestData),
-          headers: {
-              'Content-Type': 'application/json'
-          }
-      });
-
-      const result = await response.json();
-      if (result.token) {
-          // Almacena el token en localStorage o sessionStorage
-          localStorage.setItem('authToken', result.token);
-          // sessionStorage.setItem('authToken', result.token);
-      }
-      document.getElementById('result').innerText = JSON.stringify(result, null, 2); // Muestra el resultado
-  } catch (error) {
-      document.getElementById('result').innerText = 'Error: ' + error.message; // Muestra el error
-  }
-});
-document.getElementById('updateForm').addEventListener('submit', submitForm);
-// document.getElementById('deleteForm').addEventListener('submit', submitForm);
