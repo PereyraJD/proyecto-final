@@ -5,10 +5,11 @@ const controllers = {}
 
 controllers.registerUser = async (req, res) => {
     const user = new User(req.body)
-
+    
     try {
         await user.save()
         res.status(201).send(user)
+        console.log('Registro exitoso')
     } catch (error) {
         console.log('Error al registrar usuario: ',error)
         res.status(500).send(error)
