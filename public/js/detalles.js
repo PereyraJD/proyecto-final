@@ -5,7 +5,9 @@ const idPelicula = queryParams.get('id')
 
 
 const insertarElementos = (movie) => {
-document.getElementById("title").textContent = movie.titulo
+document.title = movie.titulo;
+
+document.getElementById("name").textContent = movie.titulo
 document.getElementById("synopsis").textContent = movie.sinopsis
 document.getElementById("category").innerHTML = `<span class="bold">Categoría: </span><span class="capitalize">${movie.categoria}</span>`
 document.getElementById("duration").innerHTML = `<span class="bold">Duración: </span>${movie.duracion}`

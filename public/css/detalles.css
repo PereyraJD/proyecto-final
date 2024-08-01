@@ -4,140 +4,45 @@ body {
     margin: 0;
     padding: 0;
     background: rgb(15, 32, 39);
-  background: rgb(2, 0, 36);
-  background-image: linear-gradient(to right top, #fc6207, #c33d2a, #84262c, #431820, #000000);
+    background: rgb(2, 0, 36);
+    background-color: white;
+    /* background-image: linear-gradient(to right top, #fc6207, #c33d2a, #84262c, #431820, #000000); */
 }
 
 /* Estilo del encabezado */
+.flex-style {
+    display: flex;
+    align-items: center;
+}
+
+html {
+    scroll-behavior: smooth;
+    /* Desplazamiento suave */
+}
+
 header {
-    background-color: #000000;
-    color: #fff;
-    padding: 20px;
-    position: relative;
-}
-
-/* Contenedor para el contenido del encabezado */
-.header-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Estilo del logo en el encabezado */
-.logo img {
-    height: 60px;
-}
-
-/* Estilo del menú de navegación */
-.nav-menu {
-    display: flex;
-    flex-grow: 1;
-    justify-content: center;
-}
-
-/* Lista sin estilo del menú de navegación */
-.nav-menu ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-/* Elementos de la lista en el menú de navegación */
-.nav-menu li {
-    margin: 0 20px;
-}
-
-/* Enlaces del menú de navegación */
-.nav-menu a {
-    font-family: Montserrat, sans-serif;
-    color: #fff;
-    text-decoration: none;
-}
-
-/* Estilo de la barra de búsqueda */
-.search-bar {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-    margin-right: 20px;
-}
-
-/* Estilo del campo de entrada en la barra de búsqueda */
-.search-bar input {
-    padding: 5px;
-    border: none;
-    border-radius: 4px;
-}
-
-/* Estilo del botón de la barra lateral */
-.sidebar-toggle {
-    display: block;
-}
-
-/* Estilo del botón de la barra lateral */
-.sidebar-toggle button {
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 24px;
-    cursor: pointer;
-    padding: 5px;
-}
-
-/* Estilo de la barra lateral */
-aside {
-    position: fixed;
-    top: 0;
-    left: -250px;
-    width: 250px;
-    height: 100%;
-    background-color: #333;
-    color: #fff;
-    transition: left 0.3s ease;
-    z-index: 1000;
-}
-
-/* Contenido de la barra lateral */
-.sidebar-content {
-    padding: 20px;
-}
-
-/* Lista sin estilo en la barra lateral */
-.sidebar-nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-/* Elementos de la lista en la barra lateral */
-.sidebar-nav li {
-    margin-bottom: 10px;
-}
-
-/* Enlaces en la barra lateral */
-.sidebar-nav a {
-    color: #fff;
-    text-decoration: none;
-}
-
-/* Efecto de hover en los enlaces de la barra lateral */
-.sidebar-nav a:hover {
-    text-decoration: underline;
-}
-
-/* Estilo del overlay para la barra lateral */
-.overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 900;
+    justify-content: space-between;
+    padding: 5px 40px;
+    color: white;
+}
+
+header img {
+    width: 100px;
+}
+
+header .nav-bar {
+    gap: 30px;
+}
+
+header .nav-bar a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #fff;
+}
+
+header .nav-bar a:hover {
+    opacity: 0.6;
 }
 
 /* Estilo del área de breadcrumb */
@@ -148,7 +53,7 @@ aside {
     overflow: hidden;
     padding: 200px 0;
     color: #fff;
-    /* background: url('https://images.alphacoders.com/673/673786.jpg') center/cover no-repeat; */
+    background: center/cover no-repeat;
 }
 
 /* Pseudo-elemento para la imagen de fondo difuminada */
@@ -161,14 +66,16 @@ aside {
     width: 100%;
     height: 100%;
     background: inherit;
-    background: rgba(0, 0, 139, 0.7);
+    background: rgba(0, 0, 139, 0.4);
     z-index: 1;
     pointer-events: none;
 }
 
-.breadcrumb-area > * {
-    position: relative; /* Asegura que el contenido de la sección esté por encima del color de superposición */
-    z-index: 2; /* Asegura que el contenido esté por encima del color de superposición */
+.breadcrumb-area>* {
+    position: relative;
+    /* Asegura que el contenido de la sección esté por encima del color de superposición */
+    z-index: 2;
+    /* Asegura que el contenido esté por encima del color de superposición */
 }
 
 /* Contenedor dentro del área de breadcrumb */
@@ -221,6 +128,7 @@ aside {
 .breadcrumb-trail a:hover {
     text-decoration: underline;
 }
+
 .bold {
     text-transform: capitalize;
     font-weight: 600;
@@ -232,7 +140,8 @@ aside {
 
 /* Contenedor de detalles de película */
 .movie-details-container {
-    display: block; /* Usa flexbox para alinear los detalles de la película y el tráiler lado a lado */
+    display: block;
+    /* Usa flexbox para alinear los detalles de la película y el tráiler lado a lado */
     max-width: 1300px;
     margin: 0 auto;
     padding: 20px;
@@ -241,13 +150,16 @@ aside {
 /* Estilo del recuadro de detalles de la película */
 .movie-details {
     display: flex;
-    width: 100%; /* Ajusta el ancho para que ocupe todo el contenedor */
-    margin-right: 0; /* Elimina el margen derecho */
+    width: 100%;
+    /* Ajusta el ancho para que ocupe todo el contenedor */
+    margin-right: 0;
+    /* Elimina el margen derecho */
     padding: 30px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px; /* Espaciado inferior para separación */
+    margin-bottom: 20px;
+    /* Espaciado inferior para separación */
 }
 
 .movie-poster img {
@@ -262,19 +174,24 @@ aside {
 
 /* Estilo específico para el texto en synopsis */
 #synopsis {
-    font-size: 18px; /* Tamaño de fuente específico */
-    font-family: 'Montserrat', sans-serif; /* Tipo de fuente específico (opcional, si quieres asegurarte de que sea igual al resto) */
+    font-size: 18px;
+    /* Tamaño de fuente específico */
+    font-family: 'Montserrat', sans-serif;
+    /* Tipo de fuente específico (opcional, si quieres asegurarte de que sea igual al resto) */
 }
 
 /* Estilo del recuadro del tráiler */
 .movie-trailer {
-    width: 100%; /* Ajusta el ancho para que ocupe todo el contenedor */
-    margin-left: 0; /* Elimina el margen izquierdo */
+    width: 100%;
+    /* Ajusta el ancho para que ocupe todo el contenedor */
+    margin-left: 0;
+    /* Elimina el margen izquierdo */
     padding: 30px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 20px; /* Espaciado superior para separación */
+    margin-top: 20px;
+    /* Espaciado superior para separación */
 }
 
 /* Estilo del contenedor del tráiler */
@@ -296,30 +213,31 @@ aside {
 
 
 /* Estilo del pie de página */
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #000;
-    color: #fff;
-}
+
 
 /* Personaliza la barra de desplazamiento para navegadores basados en WebKit */
 ::-webkit-scrollbar {
-    width: 8px; /* Ancho de la barra de desplazamiento vertical */
-    height: 8px; /* Altura de la barra de desplazamiento horizontal */
+    width: 8px;
+    /* Ancho de la barra de desplazamiento vertical */
+    height: 8px;
+    /* Altura de la barra de desplazamiento horizontal */
 }
 
 ::-webkit-scrollbar-track {
-    background: #f9f8ff; /* Color del fondo del track */
+    background: #f9f8ff;
+    /* Color del fondo del track */
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgb(19, 0, 105); /* Color del pulgar de la barra de desplazamiento */
-    border-radius: 0; /* Bordes rectangulares */
+    background: rgb(19, 0, 105);
+    /* Color del pulgar de la barra de desplazamiento */
+    border-radius: 0;
+    /* Bordes rectangulares */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #3b19ff; /* Color del pulgar cuando está en hover */
+    background: #3b19ff;
+    /* Color del pulgar cuando está en hover */
 }
 
 /* Estilos para los botones */
@@ -353,199 +271,260 @@ footer {
 
 /* Estilos para las películas recomendadas */
 .recommended-movies {
-    margin-top: 20px; /* Espacio superior para separar de las secciones anteriores */
+    margin-top: 20px;
+    /* Espacio superior para separar de las secciones anteriores */
     padding: 20px;
-    border-top: 1px solid #ddd; /* Línea superior para separar visualmente */
-    background-color: #f9f9f9; /* Fondo suave para destacar la sección */
-    border-radius: 8px; /* Bordes redondeados */
-    text-align: center; /* Centra el contenido dentro del contenedor */
+    border-top: 1px solid #ddd;
+    /* Línea superior para separar visualmente */
+    background-color: #f9f9f9;
+    /* Fondo suave para destacar la sección */
+    border-radius: 8px;
+    /* Bordes redondeados */
+    text-align: center;
+    /* Centra el contenido dentro del contenedor */
 }
 
 /* Estilo del título */
 .recommended-movies h3 {
     font-size: 24px;
     margin-bottom: 20px;
-    color: #333; /* Color del texto */
+    color: #333;
+    /* Color del texto */
 }
 
 /* Estilo para la lista de películas */
 .movie-list {
-    display: flex; /* Usa flexbox para alinear las películas en una fila */
-    justify-content: center; /* Centra las películas horizontalmente */
-    gap: 20px; /* Espacio entre los elementos */
-    flex-wrap: wrap; /* Permite que las películas se envuelvan en varias filas si es necesario */
-    max-width: 1200px; /* Define un ancho máximo para el contenedor */
-    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    display: flex;
+    /* Usa flexbox para alinear las películas en una fila */
+    justify-content: center;
+    /* Centra las películas horizontalmente */
+    gap: 20px;
+    /* Espacio entre los elementos */
+    flex-wrap: wrap;
+    /* Permite que las películas se envuelvan en varias filas si es necesario */
+    max-width: 1200px;
+    /* Define un ancho máximo para el contenedor */
+    margin: 0 auto;
+    /* Centra el contenedor horizontalmente */
 }
 
 /* Estilo para cada elemento de película */
 .movie-item {
-    width: 200px; /* Ancho fijo para las películas */
-    border: 2px solid #ddd; /* Color y grosor del marco */
-    border-radius: 8px; /* Bordes redondeados */
-    overflow: hidden; /* Oculta contenido que desborde el marco */
-    transition: transform 0.3s, box-shadow 0.3s; /* Transiciones suaves para efectos */
-    background-color: #fff; /* Fondo blanco para el contenido */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para profundidad */
-    text-align: center; /* Centra el texto dentro de cada película */
+    width: 200px;
+    /* Ancho fijo para las películas */
+    border: 2px solid #ddd;
+    /* Color y grosor del marco */
+    border-radius: 8px;
+    /* Bordes redondeados */
+    overflow: hidden;
+    /* Oculta contenido que desborde el marco */
+    transition: transform 0.3s, box-shadow 0.3s;
+    /* Transiciones suaves para efectos */
+    background-color: #fff;
+    /* Fondo blanco para el contenido */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Sombra sutil para profundidad */
+    text-align: center;
+    /* Centra el texto dentro de cada película */
     padding: 5px;
     margin: 30px;
 }
 
 /* Estilo de la imagen dentro del contenedor de película */
 .movie-item img {
-    width: 100%; /* Imagen ajustada al ancho del contenedor */
-    height: auto; /* Mantiene la relación de aspecto */
-    display: block; /* Elimina el espacio en blanco debajo de la imagen */
-    border-bottom: 2px solid #ddd; /* Línea divisoria entre la imagen y el texto */
-    transition: opacity 0.3s; /* Transición suave para el efecto de oscurecimiento */
+    width: 100%;
+    /* Imagen ajustada al ancho del contenedor */
+    height: auto;
+    /* Mantiene la relación de aspecto */
+    display: block;
+    /* Elimina el espacio en blanco debajo de la imagen */
+    border-bottom: 2px solid #ddd;
+    /* Línea divisoria entre la imagen y el texto */
+    transition: opacity 0.3s;
+    /* Transición suave para el efecto de oscurecimiento */
 }
 
 /* Efecto de oscurecimiento de la imagen */
 .movie-item:hover img {
-    opacity: 0.7; /* Oscurece la imagen al pasar el ratón por encima */
+    opacity: 0.7;
+    /* Oscurece la imagen al pasar el ratón por encima */
 }
 
 /* Estilo para los textos de cada película */
 .movie-item p {
-    padding: 5px; /* Espaciado interno para el texto */
-    font-size: 14px; /* Tamaño de fuente */
-    color: #666; /* Color del texto */
-    margin: 0; /* Elimina márgenes adicionales */
+    padding: 5px;
+    /* Espaciado interno para el texto */
+    font-size: 14px;
+    /* Tamaño de fuente */
+    color: #666;
+    /* Color del texto */
+    margin: 0;
+    /* Elimina márgenes adicionales */
 }
 
 .movie-item p:first-of-type {
-    font-weight: bold; /* Destaca el nombre de la película */
-    color: #333; /* Color del nombre de la película */
+    font-weight: bold;
+    /* Destaca el nombre de la película */
+    color: #333;
+    /* Color del nombre de la película */
 }
 
 /* Efecto al pasar el ratón sobre el elemento de la película */
 .movie-item:hover {
-    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más intensa al pasar el ratón */
+    transform: scale(1.05);
+    /* Aumenta ligeramente el tamaño */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    /* Sombra más intensa al pasar el ratón */
 }
 
 
 /* Estilo general del pie de página */
 footer {
-    background-color: #000; /* Fondo oscuro para el footer */
-    color: #fff; /* Texto blanco */
-    padding: 20px 0; /* Espaciado vertical para el footer */
-    text-align: center; /* Centra el texto en el pie de página */
+    background-color: #000;
+    /* Fondo oscuro para el footer */
+    color: #fff;
+    /* Texto blanco */
+    /* padding: 20px 0; */
+    /* Espaciado vertical para el footer */
+    text-align: center;
+    /* Centra el texto en el pie de página */
+    width: 100%;
 }
 
 /* Contenedor principal para la cuadrícula del footer */
 .footer-container {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr); /* 6 columnas de igual ancho */
-    gap: 20px; /* Espacio entre columnas */
-    max-width: 1200px; /* Ancho máximo del contenedor */
-    margin: 0 auto; /* Centra el contenedor horizontalmente */
-    padding: 0 20px; /* Espaciado a los lados del contenedor */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20PX;
+
 }
+
 
 /* Estilos comunes para las áreas del footer */
 .footer-area-about,
-.footer-follow,
 .footer-contact,
 .footer-legal {
-    color: #fff; /* Texto blanco */
+  
+    color: #fff;
+    /* Texto blanco */
+}
+.footer-area-about,
+.footer-contact{
+    width: 100%; /* Asegura que ambos elementos ocupen el mismo ancho */
+    display: flex;
+    flex-direction: column; /* Alinea el contenido verticalmente */
+    align-items: center; /* Centra horizontalmente el contenido */
+  
 }
 
-/* Estilo para el área de "Sobre nosotros" */
-.footer-area-about {
-    grid-column: span 2; /* Ocupa 2 columnas de la cuadrícula */
-}
 
 .footer-logo {
-    height: 100px; /* Ajusta el tamaño del logo */
+    height: 90px;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+        align-items: center;
+
 }
 
 #footer-logo {
-    max-width: 100px; /* Tamaño máximo del logo */
-}
-
-#footer-text {
-    margin-top: 10px; /* Espacio superior del texto */
-}
-
-/* Estilo para la sección de redes sociales */
-.footer-follow {
-    grid-column: span 2; /* Ocupa 2 columnas de la cuadrícula */
-}
-
-.footer-follow h3 {
-    margin-bottom: 10px; /* Espacio inferior del título */
+    max-width: 90px;
+    /* Tamaño máximo del logo */
 }
 
 .social-icons {
+    width: 250px;
     display: flex;
-    justify-content: center; /* Centra los iconos horizontalmente */
+    justify-content: center;
+    border-top: 3px double white;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    gap: 25px;
 }
 
-.social-icons a {
-    display: inline-block;
-    margin: 0 10px; /* Espacio entre iconos */
-}
 
 .social-icons img {
-    width: 30px; /* Tamaño de los iconos */
-    height: 30px; /* Tamaño de los iconos */
+    width: 35px;
+    height: 35px;
+    background-color: white;
+    border-radius: 100%;
 }
 
 /* Estilo para la sección de contacto */
 .footer-contact {
-    grid-column: span 2; /* Ocupa 2 columnas de la cuadrícula */
+    margin-top: 60px;
+    width: 1000px;
+    height: 80px;
+    /* Ocupa 2 columnas de la cuadrícula */
 }
 
 .footer-contact h3 {
-    margin-bottom: 10px; /* Espacio inferior del título */
+    margin-bottom: 10px;
+    /* Espacio inferior del título */
 }
 
 .footer-contact p {
-    margin: 5px 0; /* Espacio entre párrafos */
+    margin: 5px 0;
+    /* Espacio entre párrafos */
+}
+
+.contact-info{
+    display: flex;
+    gap: 15px;
 }
 
 /* Estilo para el área de política de privacidad y términos */
 .footer-legal {
     display: flex;
-    justify-content: flex-end; /* Alinea a la derecha */
-    align-items: center; /* Centra el contenido verticalmente */
-    gap: 20px; /* Espacio entre los enlaces */
-    color: #fff; /* Color de los enlaces */
+    justify-content: flex-end;
+    /* Alinea a la derecha */
+    align-items: center;
+    /* Centra el contenido verticalmente */
+    gap: 20px;
+    /* Espacio entre los enlaces */
+    color: #fff;
+    /* Color de los enlaces */
 }
 
 .footer-legal a {
-    color: #fff; /* Color de los enlaces */
-    text-decoration: none; /* Sin subrayado en los enlaces */
+    color: #fff;
+    /* Color de los enlaces */
+    text-decoration: none;
+    /* Sin subrayado en los enlaces */
 }
 
 .footer-legal a:hover {
     color: rgb(236, 83, 37);
-    text-decoration: underline; /* Subrayado al pasar el ratón */
+    text-decoration: underline;
+    /* Subrayado al pasar el ratón */
 }
 
 
 /* Estilo para el texto de derechos reservados en el pie de página */
 .footer-bottom {
+    width: 90%;
     display: flex;
-    justify-content: space-between; /* Distribuye el espacio entre los elementos */
-    align-items: center; /* Alinea verticalmente */
-    padding: 10px 20px; /* Espaciado interno */
-    background-color: #000; /* Fondo oscuro */
-    color: #fff; /* Texto blanco */
-    margin-top: 60px; /* Espacio entre la sección de contacto y el footer legal */
-    text-align: left; /* Alinea el texto a la izquierda si hay espacio extra */
+    justify-content: space-between;
+    /* Distribuye el espacio entre los elementos */
+    align-items: center;
+    /* Alinea verticalmente */
+    padding: 10px 20px;
+    /* Espaciado interno */
+    background-color: #000;
+    /* Fondo oscuro */
+    color: #fff;
+    /* Texto blanco */
+    /* Espacio entre la sección de contacto y el footer legal */
+    text-align: left;
+    /* Alinea el texto a la izquierda si hay espacio extra */
 }
 
 /* Se asegura de que los elementos estén alineados en la parte inferior del footer */
-.footer-bottom,
+/* .footer-bottom,
 .footer-legal {
     display: flex;
     flex-direction: row;
-}
+} */
 
 /* Espacio entre la sección de contacto y el footer legal */
-.footer-bottom {
-    margin-top: 40px; /* Ajusta el valor según el espacio deseado */
-}
