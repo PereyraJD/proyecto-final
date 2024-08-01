@@ -3,46 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalles de la Película</title>
+    <link rel="shortcut icon" href="../img/jfmIcono.png" type="image/x-icon" />
+    <title id="title">Titulo</title>
+    <!-- <link rel="stylesheet" href="../css/index.css" /> -->
     <link rel="stylesheet" href="../css/detalles.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <header>
-        <div class="header-wrapper">
-            <div class="logo">
-                <img src="../img/jfmIcono.png" alt="Logo" id="logo">
-            </div>
-            <nav class="nav-menu">
-                <ul>
-                    <li><a href="#home">Inicio</a></li>
-                    <li><a href="#movie">Pelis</a></li>
-                </ul>
-            </nav>
-            <div class="search-bar">
-                <input type="text" id="search" placeholder="Buscar película...">
-            </div>
-            <div class="sidebar-toggle">
-                <button id="sidebar-btn">☰</button>
-            </div>
-        </div>
-    </header>
+    <header class="flex-style">
+        <section class="flex-style iconoTexto">
+          <img src="../img/jfmIcono.png" alt="" />
+          <h1>Movies</h1>
+        </section>
+        <nav class="flex-style nav-bar">
+          <a href="./index.html">Inicio</a>
+          <a href="">Series</a>
+        </nav>
+      </header>
 
     <div class="breadcrumb-area" id="breadcrumb-area">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12">
                     <div class="page-title-wrapper">
-                        <h1 class="page-title">Detalles de las pelis</h1>
-                    </div>
-                    <div class="breadcrumb-menu">
-                        <nav aria-label="Breadcrumbs" class="breadcrumb-trail">
-                            <ul class="trail-items">
-                                <li class="trail-item trail-begin"><a href="#"><span>Inicio:</span></a></li>
-                                <li class="trail-item trail-end"><span>Detalles de las pelis</span></li>
-                            </ul>
-                        </nav>
+                        <h1 class="page-title">Detalles</h1>
                     </div>
                 </div>
             </div>
@@ -58,7 +43,7 @@
                         <img src="" alt="Portada de la Película" id="poster">
                     </div>
                     <div class="movie-info">
-                        <h2 id="title"></h2>
+                        <h2 id="name"></h2>
                         <p id="synopsis"></p>
                         <p id="category"></p>
                         <p id="duration"></p>

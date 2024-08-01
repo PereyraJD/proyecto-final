@@ -1,20 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
   obtenerPortadas();  // Corrección: Mover las llamadas de función a 'DOMContentLoaded'
   obtenerDatos();     // Corrección: Mover las llamadas de función a 'DOMContentLoaded'
-  // obtenerPortadas2()
 });
 
 const contenedorPrincipal = document.getElementById('contenedor-principal')
 
 
-// const mostrarElementos = (portada, trailer) => {
-//   contenedorPrincipal.innerHTML = `
-//     <img src="${portada}" alt="" style="width: 300px;">
-//     <div id="player">
-//       <iframe width="560" height="315" src="${trailer}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-//     </div>
-//   `
-// }
+
 
 const obtenerPortadas = async () => {
   const response = await fetch('http://localhost:3000/movies')
@@ -23,10 +15,9 @@ const obtenerPortadas = async () => {
 
   let sliderInner = document.querySelector('.slider-inner')
 
-  // sliderInner.innerHTML = ''
   data.forEach((elemento) => {
     sliderInner.innerHTML += `
-      <img src="${elemento.portada}" alt="Portada de ${elemento.titulo}" data-detalles="${JSON.stringify(elemento)}">
+      <img src="${elemento.banner}" alt="Banner de ${elemento.titulo}" data-detalles="${JSON.stringify(elemento)}">
     `
   })
 
@@ -39,10 +30,10 @@ const generarDetalles = (contenedor, pelicula) => {
     return
   }
   contenedor.innerHTML = `
-    <p>Titulo:</strong> ${pelicula.titulo}</p>
-    <p>Sinopsis:</strong> ${pelicula.sinopsis}</p>
-    <p>Categoría:</strong> ${pelicula.categoria}</p>
-    <p>Elenco:</strong> ${pelicula.elenco}</p>
+    <p><strong>Titulo:</strong> ${pelicula.titulo}</p>
+    <p><strong>Sinopsis:</strong> ${pelicula.sinopsis}</p>
+    <p><strong>Categoría:</strong> ${pelicula.categoria}</p>
+    <p><strong>Elenco:</strong> ${pelicula.elenco}</p>
   `
 }
 
