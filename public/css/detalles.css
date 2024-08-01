@@ -9,136 +9,39 @@ body {
 }
 
 /* Estilo del encabezado */
-header {
-    background-color: #000000;
-    color: #fff;
-    padding: 20px;
-    position: relative;
-}
-
-/* Contenedor para el contenido del encabezado */
-.header-wrapper {
+.flex-style {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Estilo del logo en el encabezado */
-.logo img {
-    height: 60px;
-}
-
-/* Estilo del menú de navegación */
-.nav-menu {
-    display: flex;
-    flex-grow: 1;
-    justify-content: center;
-}
-
-/* Lista sin estilo del menú de navegación */
-.nav-menu ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-/* Elementos de la lista en el menú de navegación */
-.nav-menu li {
-    margin: 0 20px;
-}
-
-/* Enlaces del menú de navegación */
-.nav-menu a {
-    font-family: Montserrat, sans-serif;
-    color: #fff;
-    text-decoration: none;
-}
-
-/* Estilo de la barra de búsqueda */
-.search-bar {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-    margin-right: 20px;
-}
-
-/* Estilo del campo de entrada en la barra de búsqueda */
-.search-bar input {
-    padding: 5px;
-    border: none;
-    border-radius: 4px;
-}
-
-/* Estilo del botón de la barra lateral */
-.sidebar-toggle {
-    display: block;
-}
-
-/* Estilo del botón de la barra lateral */
-.sidebar-toggle button {
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 24px;
-    cursor: pointer;
-    padding: 5px;
-}
-
-/* Estilo de la barra lateral */
-aside {
-    position: fixed;
-    top: 0;
-    left: -250px;
-    width: 250px;
-    height: 100%;
-    background-color: #333;
-    color: #fff;
-    transition: left 0.3s ease;
-    z-index: 1000;
-}
-
-/* Contenido de la barra lateral */
-.sidebar-content {
-    padding: 20px;
-}
-
-/* Lista sin estilo en la barra lateral */
-.sidebar-nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-/* Elementos de la lista en la barra lateral */
-.sidebar-nav li {
-    margin-bottom: 10px;
-}
-
-/* Enlaces en la barra lateral */
-.sidebar-nav a {
-    color: #fff;
-    text-decoration: none;
-}
-
-/* Efecto de hover en los enlaces de la barra lateral */
-.sidebar-nav a:hover {
-    text-decoration: underline;
-}
-
-/* Estilo del overlay para la barra lateral */
-.overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  }
+  
+  html {
+    scroll-behavior: smooth; /* Desplazamiento suave */
+  }
+  
+  header {
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 900;
-}
+    justify-content: space-between;
+    padding: 5px 40px;
+    color: white;
+  }
+  
+  header img {
+    width: 100px;
+  }
+  
+  header .nav-bar {
+    gap: 30px;
+  }
+  
+  header .nav-bar a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #fff;
+  }
+  
+  header .nav-bar a:hover {
+    opacity: 0.6;
+  }
 
 /* Estilo del área de breadcrumb */
 .breadcrumb-area {
@@ -148,7 +51,7 @@ aside {
     overflow: hidden;
     padding: 200px 0;
     color: #fff;
-    /* background: url('https://images.alphacoders.com/673/673786.jpg') center/cover no-repeat; */
+    background:  center/cover no-repeat;
 }
 
 /* Pseudo-elemento para la imagen de fondo difuminada */
@@ -161,7 +64,7 @@ aside {
     width: 100%;
     height: 100%;
     background: inherit;
-    background: rgba(0, 0, 139, 0.7);
+    background: rgba(0, 0, 139, 0.4);
     z-index: 1;
     pointer-events: none;
 }
