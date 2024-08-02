@@ -41,7 +41,10 @@ header img {
   width: 100px;
 }
 a {
+  display: flex;
+  align-items: center;
   text-decoration: none;
+  color: white;
 }
 header .nav-bar {
   gap: 30px;
@@ -167,7 +170,7 @@ footer {
 .footer-contact {
   margin-top: 60px;
   width: 1000px;
-  height: 80px;
+
   /* Ocupa 2 columnas de la cuadrícula */
 }
 

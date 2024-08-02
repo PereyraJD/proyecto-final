@@ -24,7 +24,7 @@ const obtenerPortadas = async () => {
 const generarSlider = (sliderInner, numImages) => {
   // let images = sliderInner.querySelectorAll('img')
   let index = 0
-  
+
   setInterval(function () {
     let percentage = (index * -100) / numImages
     sliderInner.style.transform = 'translateX(' + percentage + '%)'
@@ -60,27 +60,38 @@ async function submitForm(event) {
   // Recoge los datos del formulario
   const data = new FormData(form);
   const requestData = Object.fromEntries(data);
-  
-  if(Object.keys(requestData).length > 2) {
-    alert('Registro exitoso')
-  }
-  
-  try {
-      // Realiza la solicitud HTTP
-      const response = await fetch(action, {
-          method: method,
-          body: JSON.stringify(requestData),
-          headers: {
-              'Content-Type': 'application/json'
-          }
-      });
 
-      const result = await response.json();
-      document.getElementById('result').innerText = JSON.stringify(result, null, 2); // Muestra el resultado
+  if (Object.keys(requestData).length > 2) {
+    console.log('Registro exitoso')
+  }
+
+  try {
+    // Realiza la solicitud HTTP
+    const response = await fetch(action, {
+      method: method,
+      body: JSON.stringify(requestData),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      if (form.id === 'register-form') {
+        alert('Registro exitoso');
+        window.location.href = 'login.html'; // Redirige al formulario después del login
+      } else if (form.id === 'login-form') {
+        window.location.href = 'agregar.html'; // Redirige al formulario después del login
+      }
+    } else {
+      document.getElementById('result').innerText = 'Error: ' + result.message;
+    }
   } catch (error) {
-      document.getElementById('result').innerText = 'Error: ' + error.message; // Muestra el error
+    document.getElementById('result').innerText = 'Error: ' + error.message; // Muestra el error
   }
 }
+
 
 // Añade eventos de envío a los formularios
 document.getElementById('login-form').addEventListener('submit', submitForm);
