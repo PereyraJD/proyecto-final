@@ -33,7 +33,10 @@ const generarDetalles = (contenedor, pelicula) => {
     <p><strong>Titulo:</strong> ${pelicula.titulo}</p>
     <p><strong>Sinopsis:</strong> ${pelicula.sinopsis}</p>
     <p><strong>Categoría:</strong> ${pelicula.categoria}</p>
-    <p><strong>Elenco:</strong> ${pelicula.elenco}</p>
+    <p><strong>Elenco:</strong> ${pelicula.elenco.join( ", ")}</p>
+    <a href="detalles.html?id=${pelicula._id}" target="_blank">
+      <button class="irPeli">Ir a película</button>
+    </a>
   `
 }
 
