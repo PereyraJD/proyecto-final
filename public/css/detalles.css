@@ -24,6 +24,31 @@ html {
     /* Desplazamiento suave */
 }
 
+header {
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: space-between;
+    padding: 5px 40px;
+    color: white;
+}
+
+header img {
+    width: 100px;
+}
+
+header .nav-bar {
+    gap: 30px;
+}
+
+header .nav-bar a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #fff;
+}
+
+header .nav-bar a:hover {
+    opacity: 0.6;
+}
+
 /* Estilo del área de breadcrumb */
 .breadcrumb-area {
     font-family: Montserrat, sans-serif;

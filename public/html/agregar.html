@@ -13,14 +13,11 @@
 
 
       <div class="contenedor">
-        <form  id="movies-form" action="http://localhost:3000/movies/" method="POST" class="form-grid" >
+        <form action="/ruta-donde-se-enviaran-los-datos" method="POST" class="form-grid">
             <h1>Agregar Película</h1>
             <div class="form-group">
                 <label for="categoria">Categoría:</label>
                 <input type="text" id="categoria" name="categoria" required>
-                 <!-- <select name="opciones-categoria" id="opciones-categoria"> -->
-                  <!-- Se agregaran las categorias de las peliculas dinamicamente -->
-                 <!-- </select> -->
             </div>
             <div class="form-group">
                 <label for="titulo">Título:</label>
@@ -67,8 +64,6 @@
                 <input type="text" id="banner" name="banner" required>
             </div>
             <button type="submit">Agregar Película</button>
-
-            <pre id="result"></pre>
         </form>
     </div>
     <footer class="footer-container">
