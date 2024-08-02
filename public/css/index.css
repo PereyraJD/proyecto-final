@@ -47,9 +47,19 @@ body {
 .slider {
   overflow: hidden;
   width: 100%;
-  height: 600px /* Ajusta la altura a 600px */
-
+  height: 600px;/* Ajusta la altura a 600px */
+  position: relative;
 }
+
+.slider::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Fondo negro con 50% de opacidad */
+  z-index: 1;}
 
 .slider-inner {
   display: flex;
@@ -64,20 +74,44 @@ body {
   width: 100%;
   height: 600px; /* Mantiene la altura de 600px */
   object-fit: cover; /* Mantiene el formato de la imagen */
-  background: rgba(0, 0, 0, 0.7);
 }
+
 .datos-peliculas {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
   color: white;
   padding: 20px;
-  text-align: center;
+  text-align: left;
+  z-index: 2;
+  width: 30%;
+}
+
+.datos-peliculas p {
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.irPeli {
+  background-color: #007bff; 
+  color: white; 
+  border: none; 
+  border-radius: 8px; 
+  padding: 10px 30px;
+  margin: 20px;
+  font-size: 1rem;
+  cursor: pointer; 
+  transition: background-color 0.3s, transform 0.3s; 
+}
+
+.irPeli:hover {
+  background-color: #0056b3; 
+  transform: scale(1.05); 
 }
 
 #categorias {
@@ -112,10 +146,32 @@ body {
 }
 
 #categorias a {
+  position: relative;
+  display: block;
   text-decoration: none;
   color: #fff;
   font-weight: bold;
   font-size: 1.3rem;
+  overflow: hidden;
+  width: 150px; /* Asegura el ancho del enlace */
+  height: 200px; /* Asegura la altura del enlace */
+}
+
+#categorias a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  transition: border 0.3s
+}
+
+#categorias a p {
+  position: relative;
+  z-index: 2;
 }
 
 #categoria-accion {
@@ -152,6 +208,7 @@ body {
 }
 .categorias-hover{
   border-radius: 5px;
+  overflow: hidden;
 }
 
 .categorias-hover:hover {
