@@ -61,11 +61,11 @@ const moviesSchema = new mongoose.Schema({
     trim: true,
     required: true,  
   },
-  // owner: {
-  //   type: mongoose.Schema.Types.ObjectId,
-  //   required: true,
-  //   ref: 'User'
-  // }
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: 'User'
+  }
 });
 
 const ModelMovies = mongoose.model('movies', moviesSchema);
