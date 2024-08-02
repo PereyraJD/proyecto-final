@@ -32,7 +32,7 @@ header {
   justify-content: space-between;
   padding: 5px 40px;
   color: white;
-  position: absolute;
+  position: fixed;
   width: 100%;
   z-index: 2;
 }
@@ -40,7 +40,9 @@ header {
 header img {
   width: 100px;
 }
-
+a {
+  text-decoration: none;
+}
 header .nav-bar {
   gap: 30px;
 }
