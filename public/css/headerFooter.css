@@ -2,7 +2,8 @@
   font-family: "Material Icons";
   font-weight: normal;
   font-style: normal;
-  font-size: 24px; /* Preferred icon size */
+  font-size: 24px;
+  /* Preferred icon size */
   display: inline-block;
   line-height: 1;
   text-transform: none;
@@ -28,6 +29,7 @@
 /* Header */
 
 header {
+
   background-color: rgba(0, 0, 0, 0.5);
   justify-content: space-between;
   padding: 5px 40px;
@@ -40,9 +42,14 @@ header {
 header img {
   width: 100px;
 }
+
 a {
+  display: flex;
+  align-items: center;
   text-decoration: none;
+  color: white;
 }
+
 header .nav-bar {
   gap: 30px;
 }
@@ -86,7 +93,7 @@ header .nav-bar a:hover {
   color: white;
 }
 
-.search-bar .actions button{
+.search-bar .actions button {
   border: none;
   outline: none;
   background: none;
@@ -107,6 +114,7 @@ footer {
 
 /* Contenedor principal para la cuadrícula del footer */
 .footer-container {
+  display: flex;
   align-items: center;
   flex-direction: column;
   gap: 20px;
@@ -167,18 +175,14 @@ footer {
 .footer-contact {
   margin-top: 60px;
   width: 1000px;
-  height: 80px;
-  /* Ocupa 2 columnas de la cuadrícula */
 }
 
 .footer-contact h3 {
   margin-bottom: 10px;
-  /* Espacio inferior del título */
 }
 
 .footer-contact p {
   margin: 5px 0;
-  /* Espacio entre párrafos */
 }
 
 .contact-info {
@@ -186,47 +190,31 @@ footer {
   gap: 15px;
 }
 
-/* Estilo para el área de política de privacidad y términos */
 .footer-legal {
   display: flex;
   justify-content: flex-end;
-  /* Alinea a la derecha */
   align-items: center;
-  /* Centra el contenido verticalmente */
   gap: 20px;
-  /* Espacio entre los enlaces */
   color: #fff;
-  /* Color de los enlaces */
 }
 
 .footer-legal a {
   color: #fff;
-  /* Color de los enlaces */
   text-decoration: none;
-  /* Sin subrayado en los enlaces */
 }
 
 .footer-legal a:hover {
   color: rgb(236, 83, 37);
   text-decoration: underline;
-  /* Subrayado al pasar el ratón */
 }
 
-/* Estilo para el texto de derechos reservados en el pie de página */
 .footer-bottom {
   width: 90%;
   display: flex;
   justify-content: space-between;
-  /* Distribuye el espacio entre los elementos */
   align-items: center;
-  /* Alinea verticalmente */
   padding: 10px 20px;
-  /* Espaciado interno */
   background-color: #000;
-  /* Fondo oscuro */
   color: #fff;
-  /* Texto blanco */
-  /* Espacio entre la sección de contacto y el footer legal */
   text-align: left;
-  /* Alinea el texto a la izquierda si hay espacio extra */
 }
