@@ -243,3 +243,10 @@ h2 {
 .categoria-imagenes img:hover{
   border: 3px solid #ffffff;
 }
+
+.div-peliculas {
+  position: absolute;
+  z-index: 3;
+}
+
+

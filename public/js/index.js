@@ -3,10 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   obtenerDatos();     // Corrección: Mover las llamadas de función a 'DOMContentLoaded'
 });
 
-const contenedorPrincipal = document.getElementById('contenedor-principal')
-
-
-
+let contenedorPrincipal = document.getElementById('contenedor-principal')
 
 const obtenerPortadas = async () => {
   const response = await fetch('http://localhost:3000/movies')
@@ -33,7 +30,7 @@ const generarDetalles = (contenedor, pelicula) => {
     <p><strong>Titulo:</strong> ${pelicula.titulo}</p>
     <p><strong>Sinopsis:</strong> ${pelicula.sinopsis}</p>
     <p><strong>Categoría:</strong> ${pelicula.categoria}</p>
-    <p><strong>Elenco:</strong> ${pelicula.elenco.join( ", ")}</p>
+    <p><strong>Elenco:</strong> ${pelicula.elenco.join(", ")}</p>
     <a href="detalles.html?id=${pelicula._id}" target="_blank">
       <button class="irPeli">Ir a película</button>
     </a>
@@ -61,8 +58,6 @@ const generarSlider = (sliderInner, detallesPelicula, data) => {
     }
   }, 5000)
 }
-
-// obtenerPortadas()
 
 //*-------------- Sección categorias --------------
 const obtenerDatos = async () => {
@@ -108,16 +103,6 @@ const generarCategorias = (contenedor, categoria, peliculas) => {
   contenedor.innerHTML += contenido;
 };
 
-
-
-
-
-
-
-
-
-
-
 const capturarCategorias = (data) => {
   let categorias = []
   data.forEach((element) => {
@@ -133,3 +118,65 @@ const capturarCategorias = (data) => {
   return uniqueCategories
 }
 
+//*--------------- Buscador ---------------
+
+const buscador = async (id = '') => {
+  let url = `http://localhost:3000/movies/${id}`;
+
+  if (id != '') {
+    url = `http://localhost:3000/movies/titulo/${id}`;
+  }
+  
+  
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    // Construye el HTML para la categoría
+    let contenido = `
+      <div class="div-busquedas categoria-imagenes">
+    `;
+
+    console.log(data)
+    // Usa la variable 'data' en lugar de 'peliculas'
+    data.forEach(pelicula => {
+      contenido += `
+        <a href="detalles.html?id=${pelicula._id}">
+          <img src="${pelicula.portada}" alt="Portada de ${pelicula.titulo}">
+          <!--<p>${pelicula.titulo}</p>-->
+        </a>
+      `;
+    });
+
+    contenido += `</div>`; // Cierra el div correctamente
+
+    // Inserta el contenido en el HTML del documento
+    // document.querySelector('#contenedor-principal').innerHTML = contenido;
+
+    contenedorPrincipal.innerHTML = contenido;
+  } catch (error) { // Bloque catch con llaves
+    console.error(error);
+  }
+};
+
+const removerDivs = () => {
+  const divsPrincipal = document.querySelectorAll('#contenedor-principal > div');
+  divsPrincipal.forEach(div => div.remove());
+
+}
+
+// Llama a la función buscador
+document.querySelector('#nav-btn-peliculas').addEventListener('click', (e) => {
+  e.preventDefault()
+  // removerDivs()
+  buscador()
+
+})
+
+
+document.querySelector('.search-bar').addEventListener('submit', (e) => {
+  e.preventDefault()
+
+  const peliculaBusqueda = document.getElementById('input-search-movies').value.trim()
+  // console.log(peliculaBusqueda)
+  buscador(peliculaBusqueda.trim())
+})
