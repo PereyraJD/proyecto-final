@@ -51,11 +51,11 @@ document.getElementById('login').addEventListener('click', function () {
 
 //Captura de datos
 async function submitForm(event) {
-  event.preventDefault(); // Evita el comportamiento por defecto del formulario
+  event.preventDefault(); 
 
   const form = event.target;
-  const action = form.getAttribute('action'); // Obtiene la URL del atributo 'action'
-  const method = form.getAttribute('method'); // Obtiene el método HTTP del atributo 'method'
+  const action = form.getAttribute('action'); 
+  const method = form.getAttribute('method'); 
 
   // Recoge los datos del formulario
   const data = new FormData(form);
@@ -80,15 +80,15 @@ async function submitForm(event) {
     if (response.ok) {
       if (form.id === 'register-form') {
         alert('Registro exitoso');
-        window.location.href = 'login.html'; // Redirige al formulario después del login
+        window.location.href = 'login.html'; 
       } else if (form.id === 'login-form') {
-        window.location.href = 'agregar.html'; // Redirige al formulario después del login
+        window.location.href = 'agregar.html'; 
       }
     } else {
       document.getElementById('result').innerText = 'Error: ' + result.message;
     }
   } catch (error) {
-    document.getElementById('result').innerText = 'Error: ' + error.message; // Muestra el error
+    document.getElementById('result').innerText = 'Error: ' + error.message; 
   }
 }
 
