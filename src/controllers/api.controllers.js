@@ -37,6 +37,20 @@ controllers.getMoviesById = async (req, res) => {
     }
 }
 
+controllers.getMoviesByTitulo = async (req, res) => {
+    const titulo = req.params.titulo
+    try {
+        const movie = await ModelMovies.findOne({ titulo })
+
+        if (!movie) {
+            return res.status(404).send({ msg: 'Pelicula no encontrada' })
+        }
+        res.send(movie)
+    } catch (error) {
+        res.status(500).send(error)
+    }
+}
+
 controllers.getMoviesByCategory = async (req, res) => {
     const category = req.params.category
     try {

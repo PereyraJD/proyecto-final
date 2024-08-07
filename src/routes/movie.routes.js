@@ -8,6 +8,7 @@ router.post('/', controllers.postMovies)
 
 router.get('/', controllers.getMovies)
 router.get('/:id', controllers.getMoviesById)
+router.get('/titulo/:titulo', controllers.getMoviesByTitulo)
 router.get('/category/:category', controllers.getMoviesByCategory)
 
 router.patch('/:id', controllers.patchMovies)
