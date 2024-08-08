@@ -41,6 +41,7 @@ header {
 header img {
   width: 100px;
 }
+
 a {
   display: flex;
   align-items: center;
@@ -99,32 +100,29 @@ header .nav-bar a:hover {
 /* Estilo general del pie de página */
 footer {
   background-color: #000;
-  /* Fondo oscuro para el footer */
   color: #fff;
-  /* Texto blanco */
-  /* padding: 20px 0; */
-  /* Espaciado vertical para el footer */
   text-align: center;
-  /* Centra el texto en el pie de página */
   width: 100%;
+  padding: 20px 0;
 }
 
 /* Contenedor principal para la cuadrícula del footer */
 .footer-container {
+  display: flex;
   align-items: center;
   flex-direction: column;
   gap: 20px;
 }
 
 /* Estilos comunes para las áreas del footer */
-.footer-area-about,
+/* .footer-area-about,
 .footer-contact,
 .footer-legal {
   display: flex;
   flex-wrap: wrap;
   color: #fff;
-  /* Texto blanco */
-}
+
+} */
 
 .footer-area-about,
 .footer-contact {
@@ -194,13 +192,10 @@ footer {
 .footer-legal {
   display: flex;
   justify-content: flex-end;
-  /* Alinea a la derecha */
-  align-items: center;
-  /* Centra el contenido verticalmente */
+
+  align-items: center;  
   gap: 20px;
-  /* Espacio entre los enlaces */
-  color: #fff;
-  /* Color de los enlaces */
+
 }
 
 .footer-legal a {
@@ -218,7 +213,7 @@ footer {
 
 /* Estilo para el texto de derechos reservados en el pie de página */
 .footer-bottom {
-  width: 90%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   /* Distribuye el espacio entre los elementos */
