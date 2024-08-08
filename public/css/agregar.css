@@ -14,6 +14,7 @@ body {
   height: 100vh;
   width: 100vw;
   margin: 0;
+  margin-top: 100px;
   color: #fff;
   background: rgb(15, 32, 39);
   background: linear-gradient(90deg,
@@ -32,7 +33,8 @@ form {
   grid-template-columns: 1fr 1fr;
   gap: 15px;
   padding: 40px;
-  margin: 20px;
+  margin: 20px ;
+  margin-top: 20px ;
   background-color: #18233b;
   width: 700px;
   /* height: auto; */
@@ -110,7 +112,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  width: 65%;
+  width: 80%;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -136,10 +138,11 @@ button:hover {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: center;
-  font-size: 1.5rem;
 }
 
-
+#tabla th{
+  font-size: 20px;
+}
 
 .tabla-portadas {
   height: 150px;
@@ -151,40 +154,37 @@ button:hover {
   display: inline-block;
   margin: 5px;
   font-weight: bold;
-  transition: 0.1s;
-  font-size: 1rem;
-background-color: #fff;
-border-radius: 10px;
-padding: 5px;
-width: 80px;
+  transition: transform 0.1s;
+  border-radius: 10px;
+  padding: 5px;
+  width: 70px;
+  /* border: 1px solid white; */
 }
 
 .btn img {
   height: 40px;
 }
 
+.btn p {
+  font-size: small;
+}
+
 .btn-edit {
   color: white;
-  background-color: rgb(255, 179, 0);
-  border-color: rgb(255, 179, 0);
 }
 
 .btn-delete {
   color: white;
-  background-color: rgb(255, 51, 0);
-  border-color: rgb(255, 51, 0);
+
 }
 
 .btn-edit:hover {
-  color: white;
-  background-color: rgb(255, 179, 0);
-  border-color: rgb(255, 179, 0);
- 
+  transform: scale(1.05);
+  color: #FF9800;
+
 }
 
 .btn-delete:hover {
-  color: white;
-  background-color: rgb(255, 51, 0);
-  border-color: rgb(255, 51, 0);
+  transform: scale(1.05);
+  color: #F15B6C;
 }
-
