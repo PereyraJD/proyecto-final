@@ -150,24 +150,36 @@ button:hover {
 .btn {
   display: inline-block;
   margin: 5px;
-  padding: 5px;
-  border: 1px solid white;
   font-weight: bold;
   transition: 0.1s;
+  font-size: 1rem;
+background-color: #fff;
+border-radius: 10px;
+padding: 5px;
+width: 80px;
+}
+
+.btn img {
+  height: 40px;
 }
 
 .btn-edit {
-  color: rgb(255, 179, 0);
+  color: white;
+  background-color: rgb(255, 179, 0);
+  border-color: rgb(255, 179, 0);
 }
 
 .btn-delete {
-  color: rgb(255, 51, 0);
+  color: white;
+  background-color: rgb(255, 51, 0);
+  border-color: rgb(255, 51, 0);
 }
 
 .btn-edit:hover {
   color: white;
   background-color: rgb(255, 179, 0);
   border-color: rgb(255, 179, 0);
+ 
 }
 
 .btn-delete:hover {
