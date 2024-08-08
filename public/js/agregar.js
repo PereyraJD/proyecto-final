@@ -79,7 +79,7 @@ async function fetchmovies() {
             // Crear botón de editar
             const editLink = document.createElement('a');
             editLink.textContent = 'Editar';
-            editLink.href = '#movies-form'; // Puedes cambiar esto a la URL correspondiente si es necesario
+            editLink.href = '#ancla'; // Puedes cambiar esto a la URL correspondiente si es necesario
             editLink.className = 'btn btn-edit';
             editLink.innerHTML = '<img src="../img/editar/edit.png"><p>Editar</p>'
             editLink.onclick = () => {
