@@ -65,7 +65,7 @@ controllers.patchMovies = async (req, res) => {
     const _id = req.params.id
 
     const keys = Object.keys(req.body)
-    const allowed = ['categoria', 'titulo', 'sinopsis', 'genero', 'duracion', 'clasificacion_por_edad', 'elenco', 'director', 'año_de_lanzamiento', 'trailer', 'portada']
+    const allowed = ['categoria', 'titulo', 'sinopsis', 'duracion', 'clasificacion_por_edad', 'elenco', 'director', 'año_de_lanzamiento', 'trailer', 'portada','banner' ]
 
     const validKeys = keys.every((element) => allowed.includes(element))
 
