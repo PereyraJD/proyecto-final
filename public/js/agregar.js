@@ -14,7 +14,7 @@ async function submitForm(event) {
     }
 
     try {
-        // Realiza la solicitud HTTP
+        // Realiza la solicitud HTTP 
         const response = await fetch(action, {
             method: method,
             body: JSON.stringify(requestData),
@@ -36,7 +36,7 @@ async function fetchmovies() {
 
         const tableBody = document.querySelector('#tabla #datos');
         const contador = document.querySelector('#contador');
-        contador.innerText= `Peliculas registradas (${movies.length})`
+        contador.innerText = `Peliculas registradas (${movies.length})`
         tableBody.innerHTML = ''; // Limpia la tabla antes de agregar nuevas filas
 
         movies.forEach(movie => {
@@ -47,15 +47,18 @@ async function fetchmovies() {
             idCell.style.display = 'none'
             row.appendChild(idCell);
 
+            const portadaCell = document.createElement('td');
+            portadaCell.innerHTML = `<img class="tabla-portadas" src="${movie.portada}">`;
+            row.appendChild(portadaCell);
 
             const tituloCell = document.createElement('td');
             tituloCell.textContent = letrasMayusculas(movie.titulo);
             row.appendChild(tituloCell);
 
-            
-            const generoCell = document.createElement('td');
-            generoCell.textContent = letrasMayusculas(movie.categoria)
-            row.appendChild(generoCell);
+
+            const categoriaCell = document.createElement('td');
+            categoriaCell.textContent = letrasMayusculas(movie.categoria)
+            row.appendChild(categoriaCell);
 
             const añoCell = document.createElement('td');
             añoCell.textContent = movie.año_de_lanzamiento;
@@ -72,32 +75,89 @@ async function fetchmovies() {
             // Crear botón de editar
             const editLink = document.createElement('a');
             editLink.textContent = 'Editar';
-            editLink.href = '#'; // Puedes cambiar esto a la URL correspondiente si es necesario
+            editLink.href = '#movies-form'; // Puedes cambiar esto a la URL correspondiente si es necesario
             editLink.className = 'btn btn-edit';
-            editLink.onclick = () => editmovie(movie._id); // Asume que cada movie tiene un _id único
+            editLink.onclick = () => {
+                editarMovie(movie)
+            }; // Asume que cada movie tiene un _id único
             actionsCell.appendChild(editLink);
             // Crear botón de eliminar
             const deleteLink = document.createElement('a');
             deleteLink.textContent = 'Eliminar';
-            deleteLink.href = '#'; // Puedes cambiar esto a la URL correspondiente si es necesario
+            deleteLink.href = 'http://localhost:3000/'; // Puedes cambiar esto a la URL correspondiente si es necesario
             deleteLink.className = 'btn btn-delete';
-            deleteLink.onclick = () => deletemovie(movie._id);
+            deleteLink.onclick = (e) => {
+                e.preventDefault()
+                deleteMovie(movie._id)
+            }
+
             actionsCell.appendChild(deleteLink);
 
             row.appendChild(actionsCell);
 
             tableBody.appendChild(row);
-        });
+        })
     } catch (error) {
         console.error('Error fetching movies:', error);
     }
 }
 function letrasMayusculas(string) {
-    return string.split(' ').map(word => 
-      word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+    return string.split(' ').map(word =>
+        word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
     ).join(' ');
-  }
+}
 
 
 window.onload = fetchmovies;
 document.getElementById('movies-form').addEventListener('submit', submitForm);
+
+const deleteMovie = async (id) => {
+    const url = `http://localhost:3000/movies/${id}`
+
+    const options = {
+        method: 'DELETE',
+        headers: {
+            'Content-type': 'application/json'
+        }
+    }
+
+    try {
+        await fetch(url, options)
+        window.location.reload();
+
+    }
+    catch (error) {
+        console.log(error)
+    }
+}
+
+
+
+const editarMovie = async (movie) => {
+    const categoria = document.getElementById('categoria')
+    const titulo = document.getElementById('titulo')
+    const sinopsis = document.getElementById('sinopsis')
+    const duracion = document.getElementById('duracion')
+    const clasificacion_por_edad = document.getElementById('clasificacion_por_edad')
+    const elenco = document.getElementById('elenco')
+    const director = document.getElementById('director')
+    const año_de_lanzamiento = document.getElementById('año_de_lanzamiento')
+    const trailer = document.getElementById('trailer')
+    const portada = document.getElementById('portada')
+    const banner = document.getElementById('banner')
+
+    categoria.value = movie.categoria
+    titulo.value = movie.titulo
+    sinopsis.value = movie.sinopsis
+    console.log(movie)
+    duracion.value = movie.duracion
+    clasificacion_por_edad.value = movie.clasificacion_por_edad
+    elenco.value = movie.elenco
+    director.value = movie.director
+    año_de_lanzamiento.value = movie.año_de_lanzamiento
+    trailer.value = movie.trailer
+    portada.value = movie.portada
+    banner.value = movie.banner
+
+    console.log('klk franci \n' + movie._id)
+}
