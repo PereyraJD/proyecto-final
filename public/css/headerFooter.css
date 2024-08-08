@@ -48,6 +48,13 @@ a {
   text-decoration: none;
   color: white;
 }
+a h1{
+  margin: auto;
+}
+.btn-index{
+  display: flex;
+  margin-right: 25px;
+}
 header .nav-bar {
   gap: 30px;
 }
@@ -155,6 +162,7 @@ header .nav-bar a:hover {
   outline: none;
   background: none;
 }
+
 
 /* Estilo general del pie de página */
 footer {
