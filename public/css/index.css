@@ -29,10 +29,11 @@ body {
   height: 100%;
   width: 100%;
   min-width: 375px;
-  max-width: 1024;
+  /* max-width: 1024px; */
 }
 
 #contenedor-principal {
+  /* flex: 1; */
   color: white;
   height: 100%;
   position: relative;
@@ -249,4 +250,7 @@ h2 {
   z-index: 3;
 }
 
-
+.div-busquedas {
+  position: relative;
+  margin-top: 150px;
+}

@@ -126,8 +126,8 @@ const buscador = async (id = '') => {
   if (id != '') {
     url = `http://localhost:3000/movies/titulo/${id}`;
   }
-  
-  
+
+
   try {
     const response = await fetch(url);
     const data = await response.json();
@@ -135,17 +135,26 @@ const buscador = async (id = '') => {
     let contenido = `
       <div class="div-busquedas categoria-imagenes">
     `;
-
-    console.log(data)
+ 
     // Usa la variable 'data' en lugar de 'peliculas'
-    data.forEach(pelicula => {
+    if (Array.isArray(data)) {
+      data.forEach(pelicula => {
+        contenido += `
+          <a href="detalles.html?id=${pelicula._id}">
+            <img src="${pelicula.portada}" alt="Portada de ${pelicula.titulo}">
+            <!--<p>${pelicula.titulo}</p>-->
+          </a>
+        `;
+      });
+    }
+    else {
       contenido += `
-        <a href="detalles.html?id=${pelicula._id}">
-          <img src="${pelicula.portada}" alt="Portada de ${pelicula.titulo}">
-          <!--<p>${pelicula.titulo}</p>-->
-        </a>
-      `;
-    });
+          <a href="detalles.html?id=${data._id}">
+            <img src="${data.portada}" alt="Portada de ${data.titulo}">
+            <!--<p>${data.titulo}</p>-->
+          </a>
+        `;
+    }
 
     contenido += `</div>`; // Cierra el div correctamente
 
@@ -153,7 +162,8 @@ const buscador = async (id = '') => {
     // document.querySelector('#contenedor-principal').innerHTML = contenido;
 
     contenedorPrincipal.innerHTML = contenido;
-  } catch (error) { // Bloque catch con llaves
+  } 
+  catch (error) { // Bloque catch con llaves
     console.error(error);
   }
 };
@@ -172,11 +182,29 @@ document.querySelector('#nav-btn-peliculas').addEventListener('click', (e) => {
 
 })
 
-
 document.querySelector('.search-bar').addEventListener('submit', (e) => {
   e.preventDefault()
 
-  const peliculaBusqueda = document.getElementById('input-search-movies').value.trim()
-  // console.log(peliculaBusqueda)
-  buscador(peliculaBusqueda.trim())
+  let peliculaBusqueda = document.getElementById('input-search-movies').value
+  peliculaBusqueda = peliculaBusqueda.toLowerCase().trim()
+  console.log(peliculaBusqueda)
+  console.log(buscador(peliculaBusqueda))
 })
+
+// document.addEventListener('click', (e) => {
+
+//   if (e.target.matches('input-search-movies')) {
+
+//     document.querySelectorAll('.div-busquedas').forEach(pelicula => {
+
+//       // pelicula.textContent.toLowerCase().includes(e.target.value.toLowerCase())
+      
+//       console.log(pelicula)
+
+//     })
+
+//   }
+
+//   console.log(e.target.value)
+
+// })
