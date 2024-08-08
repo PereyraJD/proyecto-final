@@ -9,10 +9,6 @@ async function submitForm(event) {
     const data = new FormData(form);
     const requestData = Object.fromEntries(data);
 
-    if (Object.keys(requestData).length > 2) {
-        alert('Registro exitoso')
-    }
-
     try {
         // Realiza la solicitud HTTP 
         const response = await fetch(action, {
@@ -23,10 +19,18 @@ async function submitForm(event) {
             }
         });
 
-        const result = await response.json();
-        document.getElementById('result').innerText = JSON.stringify(result, null, 2); // Muestra el resultado
+        if (response.ok) {
+            alert(method === 'PATCH' ? 'Película actualizada exitosamente' : 'Película agregada exitosamente')
+            // alert('Registro exitoso')
+            window.location.reload()
+        }
+        else {
+            const errorText = await response.text()
+            console.error('Error: ', errorText)
+        }
     } catch (error) {
-        document.getElementById('result').innerText = 'Error: ' + error.message; // Muestra el error
+        document.getElementById('result').innerText = 'Error: ' + error.message; // Muestra el 
+        console.log('Error: ', error.message)
     }
 }
 async function fetchmovies() {
@@ -77,6 +81,7 @@ async function fetchmovies() {
             editLink.textContent = 'Editar';
             editLink.href = '#movies-form'; // Puedes cambiar esto a la URL correspondiente si es necesario
             editLink.className = 'btn btn-edit';
+            editLink.innerHTML = '<img src="../img/editar/edit.png"><p>Editar</p>'
             editLink.onclick = () => {
                 editarMovie(movie)
             }; // Asume que cada movie tiene un _id único
@@ -84,8 +89,9 @@ async function fetchmovies() {
             // Crear botón de eliminar
             const deleteLink = document.createElement('a');
             deleteLink.textContent = 'Eliminar';
-            deleteLink.href = 'http://localhost:3000/'; // Puedes cambiar esto a la URL correspondiente si es necesario
+            deleteLink.href = '#'; // Puedes cambiar esto a la URL correspondiente si es necesario
             deleteLink.className = 'btn btn-delete';
+            deleteLink.innerHTML = '<img src="../img/editar/delete.png"><p>Eliminar</p>'
             deleteLink.onclick = (e) => {
                 e.preventDefault()
                 deleteMovie(movie._id)
@@ -107,10 +113,6 @@ function letrasMayusculas(string) {
     ).join(' ');
 }
 
-
-window.onload = fetchmovies;
-document.getElementById('movies-form').addEventListener('submit', submitForm);
-
 const deleteMovie = async (id) => {
     const url = `http://localhost:3000/movies/${id}`
 
@@ -122,42 +124,44 @@ const deleteMovie = async (id) => {
     }
 
     try {
-        await fetch(url, options)
-        window.location.reload();
+        const response = await fetch(url, options)
+        if (response.ok) {
+            window.location.reload();
+        }
+        else {
+            console.error('Error eliminando la película')
+        }
 
     }
     catch (error) {
-        console.log(error)
+        console.log('Error: ', error.message)
     }
 }
 
 
 
 const editarMovie = async (movie) => {
-    const categoria = document.getElementById('categoria')
-    const titulo = document.getElementById('titulo')
-    const sinopsis = document.getElementById('sinopsis')
-    const duracion = document.getElementById('duracion')
-    const clasificacion_por_edad = document.getElementById('clasificacion_por_edad')
-    const elenco = document.getElementById('elenco')
-    const director = document.getElementById('director')
-    const año_de_lanzamiento = document.getElementById('año_de_lanzamiento')
-    const trailer = document.getElementById('trailer')
-    const portada = document.getElementById('portada')
-    const banner = document.getElementById('banner')
+    document.getElementById('categoria').value = movie.categoria
+    document.getElementById('titulo').value = movie.titulo
+    document.getElementById('sinopsis').value = movie.sinopsis
+    document.getElementById('duracion').value = movie.duracion
+    document.getElementById('clasificacion_por_edad').value = movie.clasificacion_por_edad
+    document.getElementById('elenco').value = movie.elenco
+    document.getElementById('director').value = movie.director
+    document.getElementById('año_de_lanzamiento').value = movie.año_de_lanzamiento
+    document.getElementById('trailer').value = movie.trailer
+    document.getElementById('portada').value = movie.portada
+    document.getElementById('banner').value = movie.banner
 
-    categoria.value = movie.categoria
-    titulo.value = movie.titulo
-    sinopsis.value = movie.sinopsis
-    console.log(movie)
-    duracion.value = movie.duracion
-    clasificacion_por_edad.value = movie.clasificacion_por_edad
-    elenco.value = movie.elenco
-    director.value = movie.director
-    año_de_lanzamiento.value = movie.año_de_lanzamiento
-    trailer.value = movie.trailer
-    portada.value = movie.portada
-    banner.value = movie.banner
+    document.getElementById('form-title').textContent = 'Editar Pelicula'
+    document.getElementById('form-btn').textContent = 'Actualizar Pelicula'
 
-    console.log('klk franci \n' + movie._id)
+    const form = document.getElementById('movies-form')
+    form.method = 'PATCH'
+    form.action = `movies/${movie._id}`
+
+    document.getElementById('result').innerText = '';
 }
+
+window.onload = fetchmovies;
+document.getElementById('movies-form').addEventListener('submit', submitForm);
