@@ -9,6 +9,7 @@
 .flex-style {
   display: flex;
   align-items: center;
+  /* flex-wrap: wrap; */
 }
 
 html {
@@ -88,9 +89,9 @@ body {
   align-items: center;
   color: white;
   padding: 20px;
-  text-align: left;
+  text-align: center;
   z-index: 2;
-  width: 30%;
+  width:  80%;
 }
 
 .datos-peliculas p {
@@ -115,13 +116,13 @@ body {
   transform: scale(1.05); 
 }
 
-#categorias {
-  margin-top: 30px;
-}
-
 .datos-peliculas p {
   margin-bottom: 10px;
   line-height: 1.3;
+}
+
+#categorias {
+  margin-top: 30px;
 }
 
 #categorias a > div {
@@ -253,4 +254,26 @@ h2 {
 .div-busquedas {
   position: relative;
   margin-top: 150px;
+}
+
+@media (max-width: 876px) {
+  .datos-peliculas {
+    top: 6.6%; /* Subir más el contenedor en pantallas más pequeñas */
+  }
+}
+
+@media (max-width: 768px) {
+  .datos-peliculas {
+    top: 6.5%; /* Subir más el contenedor en pantallas más pequeñas */
+  }
+}
+@media (max-width: 583px) {
+  .datos-peliculas {
+    top: 4.7%; /* Subir aún más el contenedor en pantallas más pequeñas */
+  }
+}
+@media (max-width: 480px) {
+  .datos-peliculas {
+    top: 4.5%; /* Subir aún más el contenedor en pantallas más pequeñas */
+  }
 }

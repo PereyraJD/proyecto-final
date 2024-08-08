@@ -186,13 +186,13 @@ footer {
 .contact-info {
   display: flex;
   gap: 15px;
+  flex-wrap: wrap;
 }
 
 /* Estilo para el área de política de privacidad y términos */
 .footer-legal {
   display: flex;
   justify-content: flex-end;
-
   align-items: center;  
   gap: 20px;
 
@@ -228,4 +228,64 @@ footer {
   /* Espacio entre la sección de contacto y el footer legal */
   text-align: left;
   /* Alinea el texto a la izquierda si hay espacio extra */
+}
+
+@media (max-width: 768px) {
+  .footer-contact {
+    width: 90%;
+  }
+
+  .contact-info {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-contact {
+    width: 100%;
+  }
+
+  .contact-info {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 658px) {
+  header.flex-style {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px 20px;
+    text-align: center;
+  }
+
+  header .nav-bar {
+    gap: 5px;
+  }
+
+  .iconoTexto {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .nav-bar {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .search-bar {
+    margin-top: 10px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .search-bar input {
+    width: 80%;
+  }
 }

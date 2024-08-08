@@ -130,22 +130,18 @@ html {
 /* Estilo del recuadro de detalles de la película */
 .movie-details {
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
-    /* Ajusta el ancho para que ocupe todo el contenedor */
     margin-right: 0;
-    /* Elimina el margen derecho */
     padding: 30px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
-    /* Espaciado inferior para separación */
 }
 
 .movie-poster img {
-    max-width: 100%;
     height: auto;
-    display: block;
     margin: 0 40px 0 0;
     border-radius: 8px;
     /* Para limitar el tamaño máximo del póster */
@@ -370,3 +366,17 @@ html {
     /* Sombra más intensa al pasar el ratón */
 }
 
+
+@media (max-width: 1075px) {
+    .movie-poster {
+        display: flex;
+        justify-content: center; 
+        width: 100%; 
+        margin: 0; 
+    }
+
+    .movie-poster img {
+        max-width: 80%; 
+        margin: 0 auto; 
+    }
+}
