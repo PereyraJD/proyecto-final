@@ -136,6 +136,15 @@ button:hover {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: center;
+  font-size: 1.5rem;
+}
+
+
+
+.tabla-portadas {
+  height: 150px;
+  aspect-ratio: 2/3;
+  object-fit: cover;
 }
 
 .btn {
@@ -166,3 +175,4 @@ button:hover {
   background-color: rgb(255, 51, 0);
   border-color: rgb(255, 51, 0);
 }
+
