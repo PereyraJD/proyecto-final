@@ -16,11 +16,6 @@ const moviesSchema = new mongoose.Schema({
     trim: true,
     required: true,
   },
-  genero: {
-    type: String,
-    trim: true,
-    required: true,
-  },
   duracion: {
     type: String,
     trim: true,
