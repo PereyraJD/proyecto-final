@@ -138,15 +138,25 @@ html {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+
+    align-items: center;
 }
 
 .movie-poster img {
     height: auto;
-    margin: 0 40px 0 0;
+    margin: 0 40px;
     border-radius: 8px;
     /* Para limitar el tamaño máximo del póster */
     max-width: 300px;
 }
+
+.movie-info{
+    width: 400px;
+}
+
+/* #name::first-letter {
+    text-transform: capitalize;
+} */
 
 /* Estilo específico para el texto en synopsis */
 #synopsis {
@@ -207,29 +217,23 @@ html {
 /* Estilo del pie de página */
 
 /* Personaliza la barra de desplazamiento para navegadores basados en WebKit */
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
     width: 8px;
-    /* Ancho de la barra de desplazamiento vertical */
     height: 8px;
-    /* Altura de la barra de desplazamiento horizontal */
 }
 
 ::-webkit-scrollbar-track {
     background: #f9f8ff;
-    /* Color del fondo del track */
 }
 
 ::-webkit-scrollbar-thumb {
     background: rgb(19, 0, 105);
-    /* Color del pulgar de la barra de desplazamiento */
     border-radius: 0;
-    /* Bordes rectangulares */
 }
 
 ::-webkit-scrollbar-thumb:hover {
     background: #3b19ff;
-    /* Color del pulgar cuando está en hover */
-}
+} */
 
 /* Estilos para los botones */
 .button-container {
@@ -371,12 +375,12 @@ html {
     .movie-poster {
         display: flex;
         justify-content: center; 
-        width: 100%; 
+        /* width: 100%;  */
         margin: 0; 
     }
 
     .movie-poster img {
-        max-width: 80%; 
-        margin: 0 auto; 
+        /* max-width: 80%;  */
+        /* margin: 0 auto;  */
     }
 }

@@ -5,10 +5,10 @@ const idPelicula = queryParams.get('id')
 
 
 const insertarElementos = (movie) => {
-document.title = movie.titulo;
+document.title = letrasMayusculas(movie.titulo);
 
-document.getElementById("name").textContent = movie.titulo
-document.getElementById("synopsis").textContent = movie.sinopsis
+document.getElementById("name").textContent = letrasMayusculas(movie.titulo)
+document.getElementById("synopsis").textContent = letrasMayusculas(movie.sinopsis)
 document.getElementById("category").innerHTML = `<span class="bold">Categoría: </span><span class="capitalize">${movie.categoria}</span>`
 document.getElementById("duration").innerHTML = `<span class="bold">Duración: </span>${movie.duracion}`
 document.getElementById("rating").innerHTML = `<span class="bold">Clasificación por edad: </span>${movie.clasificacion_por_edad}`
@@ -61,3 +61,8 @@ const obtenerDatos = async () => {
 
 obtenerDatos();
 
+function letrasMayusculas(string) {
+  return string.split(' ').map(word =>
+      word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+  ).join(' ');
+}
